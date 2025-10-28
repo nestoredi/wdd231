@@ -1,0 +1,278 @@
+/* large.css - Desktop Styles */
+@media (min-width: 1000px) {
+    .header-container {
+        padding: 0 2rem;
+    }
+    
+    .title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .page-hero {
+        padding: 4rem 2rem;
+    }
+    
+    .page-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero {
+        height: 500px;
+    }
+    
+    .hero-content h2 {
+        font-size: 3rem;
+    }
+    
+    .weather-container, .spotlight-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+    }
+    
+    /* Discover Page - Desktop */
+    .attractions-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .discover-main {
+        padding: 2rem;
+    }
+    
+    /* Directory Page - Desktop */
+    .business-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .directory-main {
+        padding: 2rem;
+    }
+    
+    /* Join Page - Desktop */
+    .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .join-main {
+        padding: 2rem;
+    }
+    
+    .levels-container {
+        gap: 3rem;
+    }
+    
+    .level-card.popular {
+        transform: scale(1.05);
+    }
+    
+    /* Navigation enhancements */
+    #primaryNav {
+        gap: 0.5rem;
+    }
+    
+    #primaryNav a {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    /* Improved grid layouts */
+    .stats-container {
+        gap: 2rem;
+    }
+    
+    .attractions-grid {
+        gap: 2.5rem;
+    }
+    
+    .benefits-grid {
+        gap: 2rem;
+    }
+    
+    /* Enhanced hover effects */
+    .logo {
+        transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+        transform: translateY(-2px);
+    }
+    
+    .cta-button {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+    }
+    
+    /* Improved form styling */
+    .application-form {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .form-group {
+        gap: 2rem;
+    }
+    
+    /* Better section spacing */
+    section {
+        padding: 4rem 2rem;
+    }
+    
+    section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    /* Enhanced card designs */
+    .stat-card, .attraction-card, .benefit-card, .level-card {
+        padding: 2rem;
+    }
+    
+    .spotlight-content, .business-info, .attraction-content {
+        padding: 2rem;
+    }
+    
+    /* Improved typography */
+    body {
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+    
+    h1, h2, h3 {
+        line-height: 1.3;
+    }
+    
+    /* Footer enhancements */
+    .footer-content {
+        padding: 0 2rem;
+    }
+    
+    .footer-bottom {
+        margin-top: 3rem;
+    }
+    
+    /* Membership level highlights */
+    .levels-container {
+        margin-bottom: 4rem;
+    }
+    
+    .level-card {
+        padding: 2.5rem 2rem;
+    }
+    
+    /* Business directory enhancements */
+    .business-card.list-view .business-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .business-card.list-view .business-info {
+        padding: 2rem;
+    }
+    
+    /* Search and filter improvements */
+    #searchInput {
+        width: 300px;
+    }
+    
+    .directory-controls {
+        padding: 2rem;
+    }
+    
+    /* Weather section improvements */
+    .weather-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    /* Events timeline improvements */
+    .events-timeline {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Climate info improvements */
+    .climate-info {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .climate-stats {
+        gap: 2rem;
+    }
+    
+    /* Call to action enhancements */
+    .membership-cta {
+        padding: 4rem 2rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .cta-content p {
+        font-size: 1.1rem;
+    }
+    
+    /* Loading animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .business-card, .attraction-card, .benefit-card {
+        animation: fadeIn 0.6s ease-out;
+    }
+    
+    /* Staggered animations for grid items */
+    .business-grid .business-card:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+    
+    .business-grid .business-card:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+    
+    .attractions-grid .attraction-card:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+    
+    .attractions-grid .attraction-card:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+    
+    /* Smooth scrolling for anchor links */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Focus visible improvements */
+    *:focus-visible {
+        outline: 2px solid var(--secondary-color);
+        outline-offset: 2px;
+    }
+    
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+        
+        html {
+            scroll-behavior: auto;
+        }
+    }
+}
