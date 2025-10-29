@@ -3,19 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CORRECCIÓN: Añadido meta author -->
+    <meta name="author" content="Nestor Edison Crossa">
     <title>Trade Face of Río Negro - Cámara de Comercio</title>
     <meta name="description" content="Sitio web oficial de la Cámara de Comercio de Río Negro, Uruguay. Fomentando el comercio y la comunidad local.">
+    
+    <!-- CORRECCIÓN: Añadidos enlaces de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <img src="images/logo.webp" alt="Logo Trade Face of Río Negro" width="140" height="80">
-            <div class="site-name"><h1>Trade Face</h1><p>of Río Negro</p></div>
-        </div>
+        <a class="logo-container" href="index.html">
+            <img src="images/logo.webp" alt="Logo Trade Face of Río Negro" width="150" height="80">
+            
+            <div class="site-name">
+                <div class="title">Trade Face</div>
+                <div class="subtitle">of Río Negro</div>
+            </div>
+        </a>
         <nav>
-            <button id="menu-button">☰</button>
+            <button id="menu-button" aria-label="Toggle Navigation" aria-expanded="false">☰</button>
             <ul id="nav-links">
                 <li><a class="active" href="index.html">Home</a></li>
                 <li><a href="discover.html">Discover</a></li>
@@ -29,61 +41,60 @@
     </header>
 
     <main>
-        <div class="hero">
-            <picture>
-                <source srcset="images/rionegro.webp"  media="(min-width: 1000px)">
-                <source srcset="images/rionegro.webp"  media="(min-width: 500px)">
-                <img src="images/rionegro.jpg" alt="Paisaje del Anglo en Río Negro" loading="lazy">
-            </picture>
-            <a href="join.html" class="hero-action">Join</a>
-        </div>
+        <!-- CORRECCIÓN: Se añade H1 aquí, y el hero es ahora una <section> -->
+        <h1>Rio Negro Chamber of Commerce</h1>
+        <section class="hero">
+            <h2 class="visually-hidden">Welcome to Río Negro</h2>
+            <img src="images/rionegro.webp" alt="Paisaje del Anglo en Río Negro" loading="lazy" width="1200" height="600">
+            <a href="join.html" class="hero-action">Join Us</a>
+        </section>
 
+        <!-- CORRECCIÓN: El home-grid ahora es una <section> -->
         <section class="home-grid">
+            <h2 class="visually-hidden">Quick information</h2>
             <div class="card events">
-                <h2>Events</h2>
-                <p><strong>Next events:</strong> Seminario de Innovación Agrícola. ¡No te lo pierdas!</p>
-                <p><strong>Fecha:</strong> 15 de Noviembre</p>
+                <h3>Events</h3>
+                <p><strong>Next events:</strong> Seminario de Innovación Agrícola.</p>
             </div>
             <div class="card weather">
-                <h2>Actual Weather</h2>
-                <p><strong>Fray Bentos:</strong></p>
-                <p><img src="https://via.placeholder.com/50?text=☀️" alt="Ícono del clima soleado" loading="lazy"> 22°C - Soleado</p>
-                <p><strong>Viento:</strong> 10 km/h</p>
+                <h3> Actual Weather</h3>
+                <p><strong>Fray Bentos:</strong> 22°C - Soleado</p>
             </div>
             <div class="card forecast">
-                <h2>Three-day forrecast</h2>
+                <h3>forecast</h3>
                 <ul>
-                    <li><strong>Wednesday:</strong> 24°C ☀️</li>
-                    <li><strong>Thursday:</strong> 26°C ☀️</li>
-                    <li><strong>Friday:</strong> 23°C 🌥️</li>
+                    <li>Wednesday: 24°C ☀️</li>
+                    <li>Thursday: 26°C ☀️</li>
                 </ul>
             </div>
         </section>
 
         <section class="spotlights">
-            <h2>Prominent Companies</h2>
+            <h2>Featured Companies</h2>
             <div class="spotlight-container">
+                
                 <div class="card business-spotlight">
                     <img src="images/business1.jpg" alt="Logo de Dulce Río" loading="lazy">
-                    <h3>"Dulce Río"</h3><p>Artesanal wine.</p><hr><p>info@dulcerio.com | 099-123-456</p><a href="#">dulcerio.com</a>
+                    <h3>"Dulce Río"</h3><p>Panadería artesanal.</p><hr><p>info@dulcerio.com</p><a href="#">dulcerio.com</a>
                 </div>
                 <div class="card business-spotlight">
                     <img src="images/business2.jpg" alt="Logo de Agro-Innovación" loading="lazy">
-                    <h3>"Meat packing services"</h3><p>Servicios de monitoreo con drones.</p><hr><p>contacto@agroinnova.uy | 098-765-432</p><a href="#">agroinnova.uy</a>
+                    <h3>"Agro-Innovación"</h3><p>Servicios con drones.</p><hr><p>contacto@agroinnova.uy</p><a href="#">agroinnova.uy</a>
                 </div>
                 <div class="card business-spotlight">
                     <img src="images/business3.jpg" alt="Logo de Río Aventura" loading="lazy">
-                    <h3>"Río Aventura"</h3><p>IT services and monitoring</p><hr><p>info@rioaventura.uy | 091-234-567</p><a href="#">rioaventura.uy</a>
+                    <h3>"Río Aventura"</h3><p>Agencia de turismo.</p><hr><p>info@rioaventura.uy</p><a href="#">rioaventura.uy</a>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-info"><img src="images/logo.webp" alt="Logo Pequeño" width="120" height="80" ><div><p><strong>Trade Face of Río Negro</strong></p><p>18 de Julio 1234, Fray Bentos</p></div></div>
+        <div class="footer-info"><img src="images/logo.webp" alt="Logo Pequeño" width="100" height="60"><div><p><strong>Trade Face of Río Negro</strong></p><p>18 de Julio 1234, Fray Bentos</p></div></div>
         <div class="footer-contact"><p>info@traderionegro.uy</p><p>(+598) 1234-5678</p></div>
-        <div class="footer-meta"><p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p><p><strong>Nestor Crossa</strong></p><p>Proyecto WDD 231</p><p>Last Modificatión: <span id="last-modified"></span></p></div>
+        <div class="footer-meta"><p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p><p><strong>Nestor Edison Crossa</strong></p><p>Proyecto WDD 231</p><p>Última Modificación: <span id="last-modified"></span></p></div>
     </footer>
-    <script src="scripts/main.js"></script>
+   
+    <script src="scripts/main.js" defer></script>
 </body>
 </html>
