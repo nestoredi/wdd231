@@ -1,139 +1,88 @@
-// main.js - Common functionality
-// Set current year and last modified date
-document.getElementById('currentYear').textContent = new Date().getFullYear();
-document.getElementById('lastModified').textContent = document.lastModified;
-
-// Hamburger menu functionality
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const primaryNav = document.getElementById('primaryNav');
-
-hamburgerBtn.addEventListener('click', () => {
-    primaryNav.classList.toggle('show');
-    hamburgerBtn.innerHTML = primaryNav.classList.contains('show') ? '✕' : '&#9776;';
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('nav') && primaryNav.classList.contains('show')) {
-        primaryNav.classList.remove('show');
-        hamburgerBtn.innerHTML = '&#9776;';
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // =================================================
+    // 1. Copyright Year and Last Modified Date
+    // =================================================
+    const copyrightYearElement = document.getElementById('copyright-year');
+    if (copyrightYearElement) {
+        copyrightYearElement.textContent = new Date().getFullYear();
     }
-});
 
-// Weather data (mock)
-function displayWeather() {
-    const forecastContainer = document.querySelector('.forecast');
-    if (!forecastContainer) return;
-    
-    const forecastData = [
-        { day: 'Tomorrow', temp: '75°F', condition: 'Partly cloudy' },
-        { day: 'Wednesday', temp: '68°F', condition: 'Rainy' },
-        { day: 'Thursday', temp: '73°F', condition: 'Sunny' }
-    ];
-    
-    forecastData.forEach(day => {
-        const dayElement = document.createElement('div');
-        dayElement.className = 'forecast-day';
-        dayElement.innerHTML = `
-            <h4>${day.day}</h4>
-            <div class="temp">${day.temp}</div>
-            <div class="condition">${day.condition}</div>
-        `;
-        forecastContainer.appendChild(dayElement);
-    });
-}
+    const lastModifiedElement = document.getElementById('last-modified');
+    if (lastModifiedElement) {
+        lastModifiedElement.textContent = document.lastModified;
+    }
 
-// Business spotlights (mock data)
-function displayBusinessSpotlights() {
-    const spotlightContainer = document.querySelector('.spotlight-container');
-    if (!spotlightContainer) return;
-    
-    const businesses = [
-        { 
-            name: 'Los Alamos Winery', 
-            description: 'Family vineyards producing quality wines since 1985.', 
-            image: 'images/business1.jpg',
-            type: 'Wineries'
-        },
-        { 
-            name: 'Río Negro Meat Packing', 
-            description: 'Beef processing and export to international markets.', 
-            image: 'images/business2.jpg',
-            type: 'Agribusiness'
-        },
-        { 
-            name: 'TechSolutions', 
-            description: 'IT services and software development for local businesses.', 
-            image: 'images/business3.jpg',
-            type: 'Technology'
+    // =================================================
+    // 2. Hamburger Menu Functionality
+    // =================================================
+    const menuButton = document.getElementById('menu-button');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuButton && navLinks) {
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            menuButton.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+        });
+    }
+
+    // =================================================
+    // 3. Dark Mode Toggle
+    // =================================================
+    const darkModeToggle = document.querySelector('.dark-mode-switch input[type="checkbox"]');
+    const body = document.body;
+
+    const applyTheme = (isDark) => {
+        if (isDark) {
+            body.classList.add('dark-mode');
+            if(darkModeToggle) darkModeToggle.checked = true;
+        } else {
+            body.classList.remove('dark-mode');
+            if(darkModeToggle) darkModeToggle.checked = false;
         }
-    ];
-    
-    businesses.forEach(business => {
-        const card = document.createElement('div');
-        card.className = 'spotlight-card';
-        card.innerHTML = `
-            <img src="${business.image}" alt="${business.name}" loading="lazy">
-            <div class="spotlight-content">
-                <h3>${business.name}</h3>
-                <p class="business-type">${business.type}</p>
-                <p>${business.description}</p>
-            </div>
-        `;
-        spotlightContainer.appendChild(card);
-    });
-}
+    };
 
-// Events (mock data)
-function displayEvents() {
-    const eventsContainer = document.querySelector('.events-container');
-    if (!eventsContainer) return;
-    
-    const events = [
-        { 
-            title: 'Business Networking', 
-            date: 'October 15, 2023', 
-            location: 'Convention Center', 
-            description: 'Connect with other local business owners.'
-        },
-        { 
-            title: 'Export Workshop', 
-            date: 'October 22, 2023', 
-            location: 'Municipal Hall', 
-            description: 'Learn how to export your products abroad.'
-        },
-        { 
-            title: 'Job Fair', 
-            date: 'November 5, 2023', 
-            location: 'Main Square', 
-            description: 'Find talent for your company.'
-        }
-    ];
-    
-    events.forEach(event => {
-        const card = document.createElement('div');
-        card.className = 'event-card';
-        card.innerHTML = `
-            <h3>${event.title}</h3>
-            <p class="event-date"><strong>Date:</strong> ${event.date}</p>
-            <p class="event-location"><strong>Location:</strong> ${event.location}</p>
-            <p>${event.description}</p>
-        `;
-        eventsContainer.appendChild(card);
-    });
-}
+    const savedTheme = localStorage.getItem('theme');
+    applyTheme(savedTheme === 'dark');
 
-// Initialize page elements
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.querySelector('.forecast')) {
-        displayWeather();
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
     }
     
-    if (document.querySelector('.spotlight-container')) {
-        displayBusinessSpotlights();
+    // =================================================
+    // 4. Directory View Toggle
+    // =================================================
+    const gridBtn = document.getElementById('grid-view-btn');
+    const listBtn = document.getElementById('list-view-btn');
+    const directoryContainer = document.getElementById('directory-container');
+
+    if (gridBtn && listBtn && directoryContainer) {
+        gridBtn.addEventListener('click', () => {
+            directoryContainer.className = 'directory-grid'; // Resetea las clases y aplica la de grid
+            gridBtn.classList.add('active');
+            listBtn.classList.remove('active');
+        });
+
+        listBtn.addEventListener('click', () => {
+            directoryContainer.className = 'directory-list'; // Resetea y aplica la de lista
+            listBtn.classList.add('active');
+            gridBtn.classList.remove('active');
+        });
     }
-    
-    if (document.querySelector('.events-container')) {
-        displayEvents();
+
+    // =================================================
+    // 5. Join Page Form - Hidden Timestamp
+    // =================================================
+    const formLoadTimeInput = document.getElementById('form-load-time');
+    if (formLoadTimeInput) {
+        formLoadTimeInput.value = Date.now();
     }
 });

@@ -1,105 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chamber of Commerce of Río Negro, Uruguay - Promoting local commerce and economic development">
-    <meta name="author" content="Nestor Crossa Wdd231 course">
-    <title>Trade Face of Río Negro - Chamber of Commerce</title>
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/medium.css">
-    <link rel="stylesheet" href="styles/large.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <title>Trade Face of Río Negro - Cámara de Comercio</title>
+    <meta name="description" content="Sitio web oficial de la Cámara de Comercio de Río Negro, Uruguay. Fomentando el comercio y la comunidad local.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
     <header>
-        <div class="header-container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.webp" alt="Trade Face of Río Negro Logo" width="100" height="100">
-                <div class="title">
-                    <h1>Trade Face of Río Negro</h1>
-                    <p>Chamber of Commerce</p>
-                </div>
-            </a>
-            <nav>
-                <button id="hamburgerBtn" aria-label="Menu">&#9776;</button>
-                <ul id="primaryNav">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="discover.html">Discover</a></li>
-                    <li><a href="directory.html">Directory</a></li>
-                    <li><a href="join.html">Join</a></li>
-                </ul>
-            </nav>
+        <div class="logo-container">
+            <img src="images/logo.webp" alt="Logo Trade Face of Río Negro" width="140" height="80">
+            <div class="site-name"><h1>Trade Face</h1><p>of Río Negro</p></div>
+        </div>
+        <nav>
+            <button id="menu-button">☰</button>
+            <ul id="nav-links">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
+        <div class="dark-mode-switch">
+            ☀️<label class="switch"><input type="checkbox"><span class="slider round"></span></label>🌙
         </div>
     </header>
 
-    <main id="main-content">
-        <section class="hero">
+    <main>
+        <div class="hero">
             <picture>
-                <source media="(min-width: 1000px)" srcset="images/rionegro.webp">
-                <source media="(min-width: 600px)" srcset="images/rionegro.webp">
-                <img src="images/rionegro.webp" alt="Panoramic view of Río Negro" loading="lazy">
+                <source srcset="images/rionegro.webp"  media="(min-width: 1000px)">
+                <source srcset="images/rionegro.webp"  media="(min-width: 500px)">
+                <img src="images/rionegro.jpg" alt="Paisaje del Anglo en Río Negro" loading="lazy">
             </picture>
-            <div class="hero-content">
-                <h2>Driving Local Commerce</h2>
-                <p>Connecting businesses, promoting growth, and strengthening our community</p>
-                <a href="join.html" class="cta-button">Join Today</a>
+            <a href="join.html" class="hero-action">Join</a>
+        </div>
+
+        <section class="home-grid">
+            <div class="card events">
+                <h2>Events</h2>
+                <p><strong>Next events:</strong> Seminario de Innovación Agrícola. ¡No te lo pierdas!</p>
+                <p><strong>Fecha:</strong> 15 de Noviembre</p>
+            </div>
+            <div class="card weather">
+                <h2>Actual Weather</h2>
+                <p><strong>Fray Bentos:</strong></p>
+                <p><img src="https://via.placeholder.com/50?text=☀️" alt="Ícono del clima soleado" loading="lazy"> 22°C - Soleado</p>
+                <p><strong>Viento:</strong> 10 km/h</p>
+            </div>
+            <div class="card forecast">
+                <h2>Three-day forrecast</h2>
+                <ul>
+                    <li><strong>Wednesday:</strong> 24°C ☀️</li>
+                    <li><strong>Thursday:</strong> 26°C ☀️</li>
+                    <li><strong>Friday:</strong> 23°C 🌥️</li>
+                </ul>
             </div>
         </section>
 
-        <section class="weather">
-            <h2>Weather in Río Negro</h2>
-            <div class="weather-container">
-                <div class="current-weather">
-                    <h3>Today</h3>
-                    <div class="temp">72°F</div>
-                    <div class="condition">Sunny</div>
-                </div>
-                <div class="forecast">
-                    <!-- 3-day forecast will be populated by JS -->
-                </div>
-            </div>
-        </section>
-
-        <section class="business-spotlights">
-            <h2>Featured Businesses</h2>
+        <section class="spotlights">
+            <h2>Prominent Companies</h2>
             <div class="spotlight-container">
-                <!-- Business spotlights will be populated by JS -->
-            </div>
-        </section>
-
-        <section class="events">
-            <h2>Upcoming Events</h2>
-            <div class="events-container">
-                <!-- Events will be populated by JS -->
+                <div class="card business-spotlight">
+                    <img src="images/business1.jpg" alt="Logo de Dulce Río" loading="lazy">
+                    <h3>"Dulce Río"</h3><p>Artesanal wine.</p><hr><p>info@dulcerio.com | 099-123-456</p><a href="#">dulcerio.com</a>
+                </div>
+                <div class="card business-spotlight">
+                    <img src="images/business2.jpg" alt="Logo de Agro-Innovación" loading="lazy">
+                    <h3>"Meat packing services"</h3><p>Servicios de monitoreo con drones.</p><hr><p>contacto@agroinnova.uy | 098-765-432</p><a href="#">agroinnova.uy</a>
+                </div>
+                <div class="card business-spotlight">
+                    <img src="images/business3.jpg" alt="Logo de Río Aventura" loading="lazy">
+                    <h3>"Río Aventura"</h3><p>IT services and monitoring</p><hr><p>info@rioaventura.uy | 091-234-567</p><a href="#">rioaventura.uy</a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>Trade Face of Río Negro</h3>
-                <p>Av. Uruguay 1234, Río Negro</p>
-                <p>info@tradefacerionegro.org</p>
-                <p>+598 4562 1234</p>
-            </div>
-            <div class="social-links">
-                <a href="#"><img src="images/facebook.svg" alt="Facebook" width="30" height="30"></a>
-                <a href="#"><img src="images/x.jpg" alt="Twitter" width="30" height="30"></a>
-                <a href="#"><img src="images/instagram.png" alt="Instagram" width="30" height="30"></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="currentYear"></span> Trade Face of Río Negro</p>
-            <p>Last modified: <span id="lastModified"></span></p>
-        </div>
+        <div class="footer-info"><img src="images/logo.webp" alt="Logo Pequeño"width="120" height="80" ><div><p><strong>Trade Face of Río Negro</strong></p><p>18 de Julio 1234, Fray Bentos</p></div></div>
+        <div class="footer-contact"><p>info@traderionegro.uy</p><p>(+598) 1234-5678</p></div>
+        <div class="footer-meta"><p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p><p><strong>Nestor Crossa</strong></p><p>Proyecto WDD 231</p><p>Last Modificatión: <span id="last-modified"></span></p></div>
     </footer>
-
     <script src="scripts/main.js"></script>
 </body>
 </html>
