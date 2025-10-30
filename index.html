@@ -1,100 +1,75 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CORRECCIÓN: Añadido meta author -->
-    <meta name="author" content="Nestor Edison Crossa">
-    <title>Trade Face of Río Negro - Cámara de Comercio</title>
-    <meta name="description" content="Sitio web oficial de la Cámara de Comercio de Río Negro, Uruguay. Fomentando el comercio y la comunidad local.">
-    
-    <!-- CORRECCIÓN: Añadidos enlaces de Google Fonts -->
+    <title>WDD 231 - Course Home Page - Nestor Crossa</title>
+    <meta name="description" content="Course home page for WDD 231, created by Nestor Crossa.">
+    <meta name="author" content="Nestor Crossa">
+
+    <!-- Google Fonts: Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="icon" href="favicon.ico">
+    <!-- The defer attribute is crucial for performance and correct script execution -->
+    <script src="scripts/main.js" defer></script>
 </head>
 <body>
     <header>
-        <a class="logo-container" href="index.html">
-            <img src="images/logo.webp" alt="Logo Trade Face of Río Negro" width="150" height="80">
-            
-            <div class="site-name">
-                <div class="title">Trade Face</div>
-                <div class="subtitle">of Río Negro</div>
-            </div>
-        </a>
-        <nav>
-            <button id="menu-button" aria-label="Toggle Navigation" aria-expanded="false">☰</button>
-            <ul id="nav-links">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="discover.html">Discover</a></li>
-                <li><a href="directory.html">Directory</a></li>
-                <li><a href="join.html">Join</a></li>
-            </ul>
-        </nav>
-        <div class="dark-mode-switch">
-            ☀️<label class="switch"><input type="checkbox"><span class="slider round"></span></label>🌙
+        <div class="header-content">
+            <!-- SVG Logo Placeholder -->
+            <svg class="logo" width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100" height="100" rx="15" fill="#007BFF"/>
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Roboto, sans-serif" font-size="60" fill="#FFFFFF">NC</text>
+            </svg>
+            <span class="site-name">Nestor Crossa</span>
         </div>
+        <button id="menu-button" aria-label="Toggle Navigation Menu">☰</button>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="#">Chamber Project</a>
+            <a href="#">Final Project</a>
+        </nav>
     </header>
 
     <main>
-        <!-- CORRECCIÓN: Se añade H1 aquí, y el hero es ahora una <section> -->
-        <h1>Rio Negro Chamber of Commerce</h1>
-        <section class="hero">
-            <h2 class="visually-hidden">Welcome to Río Negro</h2>
-            <img src="images/rionegro.webp" alt="Paisaje del Anglo en Río Negro" loading="lazy" width="1200" height="600">
-            <a href="join.html" class="hero-action">Join Us</a>
-        </section>
+        <h1 class="page-title">Home</h1>
+        <div class="content-grid">
+            <section class="card about-me">
+                <h2>About Me</h2>
+                <div class="about-me-content">
+                    <img src="images/foto.jpg" alt="A photo of Nestor Crossa" class="student-photo">
+                    <p>My name is Nestor Crossa and I'm from Montevideo, Uruguay. I studied Systems Analyst and now I have the challenge of continuing my studies at BYU-Idaho in Software Development.</p>
+                </div>
+            </section>
 
-        <!-- CORRECCIÓN: El home-grid ahora es una <section> -->
-        <section class="home-grid">
-            <h2 class="visually-hidden">Events</h2>
-            <div class="card events">
-                <h3>Events</h3>
-                <p><strong>Next events:</strong> Seminario de Innovación Agrícola.</p>
-            </div>
-            <div class="card weather">
-                <h3> Actual Weather</h3>
-                <p><strong>Fray Bentos:</strong> 22°C - Soleado</p>
-            </div>
-            <div class="card forecast">
-                <h3>forecast</h3>
-                <ul>
-                    <li>Wednesday: 24°C ☀️</li>
-                    <li>Thursday: 26°C ☀️</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="spotlights">
-            <h2>Featured Companies</h2>
-            <div class="spotlight-container">
-                
-                <div class="card business-spotlight">
-                    <img src="images/business1.jpg" alt="Logo de Dulce Río" loading="lazy">
-                    <h3>"Dulce Río"</h3><p>Panadería artesanal.</p><hr><p>info@dulcerio.com</p><a href="#">dulcerio.com</a>
+            <section class="card courses">
+                <h2>Web Certificate Courses</h2>
+                <div class="course-filters">
+                    <button id="filter-all" class="active">All</button>
+                    <button id="filter-wdd">WDD</button>
+                    <button id="filter-cse">CSE</button>
                 </div>
-                <div class="card business-spotlight">
-                    <img src="images/business2.jpg" alt="Logo de Agro-Innovación" loading="lazy">
-                    <h3>"Agro-Innovación"</h3><p>Servicios con drones.</p><hr><p>contacto@agroinnova.uy</p><a href="#">agroinnova.uy</a>
+                <div id="course-cards-container">
+                    <!-- Course cards will be dynamically inserted here by JavaScript -->
                 </div>
-                <div class="card business-spotlight">
-                    <img src="images/business3.jpg" alt="Logo de Río Aventura" loading="lazy">
-                    <h3>"Río Aventura"</h3><p>Agencia de turismo.</p><hr><p>info@rioaventura.uy</p><a href="#">rioaventura.uy</a>
-                </div>
-            </div>
-        </section>
+                <p class="credits-total">Total Credits for selection: <span id="total-credits">0</span></p>
+            </section>
+        </div>
     </main>
 
     <footer>
-        <div class="footer-info"><img src="images/logo.webp" alt="Logo Pequeño" width="100" height="60"><div><p><strong>Trade Face of Río Negro</strong></p><p>18 de Julio 1234, Fray Bentos</p></div></div>
-        <div class="footer-contact"><p>info@traderionegro.uy</p><p>(+598) 1234-5678</p></div>
-        <div class="footer-meta"><p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p><p><strong>Nestor Edison Crossa</strong></p><p>Proyecto WDD 231</p><p>Última Modificación: <span id="last-modified"></span></p></div>
+        <div class="footer-content">
+            <div class="social-links">
+                <!-- Replace with your actual links -->
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+            <p>&copy; <span id="current-year"></span> Nestor Crossa • Uruguay</p>
+            <p>Last Modification: <span id="last-modified"></span></p>
+        </div>
     </footer>
-   
-    <script src="scripts/main.js" defer></script>
 </body>
 </html>
