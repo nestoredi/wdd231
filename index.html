@@ -12,14 +12,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- The defer attribute is crucial for performance and correct script execution -->
+    <!-- CORRECTED: Two CSS files linked as required -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
     <script src="scripts/main.js" defer></script>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <!-- SVG Logo Placeholder -->
             <svg class="logo" width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <rect width="100" height="100" rx="15" fill="#007BFF"/>
                 <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Roboto, sans-serif" font-size="60" fill="#FFFFFF">NC</text>
@@ -36,34 +37,40 @@
 
     <main>
         <h1 class="page-title">Home</h1>
-        <div class="content-grid">
-            <section class="card about-me">
-                <h2>About Me</h2>
-                <div class="about-me-content">
-                    <img src="images/foto.jpg" alt="A photo of Nestor Crossa" class="student-photo">
-                    <p>My name is Nestor Crossa and I'm from Montevideo, Uruguay. I studied Systems Analyst and now I have the challenge of continuing my studies at BYU-Idaho in Software Development.</p>
-                </div>
-            </section>
 
-            <section class="card courses">
-                <h2>Web Certificate Courses</h2>
-                <div class="course-filters">
-                    <button id="filter-all" class="active">All</button>
-                    <button id="filter-wdd">WDD</button>
-                    <button id="filter-cse">CSE</button>
-                </div>
-                <div id="course-cards-container">
-                    <!-- Course cards will be dynamically inserted here by JavaScript -->
-                </div>
-                <p class="credits-total">Total Credits for selection: <span id="total-credits">0</span></p>
-            </section>
-        </div>
+        <!-- CORRECTED: Now there are three <section> elements inside <main> -->
+        <section class="card about-me">
+            <h2>About Me</h2>
+            <div class="about-me-content">
+                <!-- IMPORTANT: Make sure this path points to your actual image file -->
+                <img src="images/foto.jpg" alt="A photo of Nestor Crossa" class="student-photo">
+                <p>My name is Nestor Crossa and I'm from Montevideo, Uruguay. I studied Systems Analyst and now I have the challenge of continuing my studies at BYU-Idaho in Software Development.</p>
+            </div>
+        </section>
+
+        <section class="card courses">
+            <h2>Web Certificate Courses</h2>
+            <div class="course-filters">
+                <button id="filter-all" class="active">All</button>
+                <button id="filter-wdd">WDD</button>
+                <button id="filter-cse">CSE</button>
+            </div>
+            <div id="course-cards-container">
+                <!-- Course cards are dynamically inserted here -->
+            </div>
+            <p class="credits-total">Total Credits for selection: <span id="total-credits">0</span></p>
+        </section>
+
+        <section class="card learning-goals">
+            <h2>My Learning Goals</h2>
+            <p>My goal for this course is to master responsive web design principles and become proficient in using JavaScript to create dynamic, user-friendly web applications that meet modern accessibility and performance standards.</p>
+        </section>
+
     </main>
 
     <footer>
         <div class="footer-content">
             <div class="social-links">
-                <!-- Replace with your actual links -->
                 <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
