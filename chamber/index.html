@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CORRECCIÓN: Añadido meta author -->
+    <meta name="author" content="Nestor Edison Crossa">
+    <title>Trade Face of Río Negro - Cámara de Comercio</title>
+    <meta name="description" content="Sitio web oficial de la Cámara de Comercio de Río Negro, Uruguay. Fomentando el comercio y la comunidad local.">
+    
+    <!-- CORRECCIÓN: Añadidos enlaces de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <!-- NUEVO: Metas para Redes Sociales (Open Graph) -->
+    <meta property="og:title" content="Directorio de Miembros - Trade Face of Río Negro">
+    <meta property="og:type" content="website">
+    <!-- IMPORTANTE: Reemplaza la siguiente URL con la URL final de tu página -->
+    <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/directory.html"> 
+    <!-- IMPORTANTE: Reemplaza la siguiente URL con un enlace a una imagen representativa -->
+    <meta property="og:image" content="https://nestoredi.github.io/wdd231/chamber/images/logo.webp">
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <a class="logo-container" href="index.html">
+            <img src="images/logo.webp" alt="Logo Trade Face of Río Negro" width="150" height="80">
+            
+            <div class="site-name">
+                <div class="title">Trade Face</div>
+                <div class="subtitle">of Río Negro</div>
+            </div>
+        </a>
+        <nav>
+            <button id="menu-button" aria-label="Toggle Navigation" aria-expanded="false">☰</button>
+            <ul id="nav-links">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
+        <div class="dark-mode-switch">
+            ☀️<label class="switch"><input type="checkbox"><span class="slider round"></span></label>🌙
+        </div>
+    </header>
+
+    <main>
+        <!-- CORRECCIÓN: Se añade H1 aquí, y el hero es ahora una <section> -->
+        <h1>Rio Negro Chamber of Commerce</h1>
+        <section class="hero">
+            <h2 class="visually-hidden">Welcome to Río Negro</h2>
+            <img src="images/rionegro.webp" alt="Paisaje del Anglo en Río Negro" loading="lazy" width="1200" height="600">
+            <a href="join.html" class="hero-action">Join Us</a>
+        </section>
+
+        <!-- CORRECCIÓN: El home-grid ahora es una <section> -->
+        <section class="home-grid">
+            <h2 class="visually-hidden">Events</h2>
+            <div class="card events">
+                <h3>Events</h3>
+                <p><strong>Next events:</strong> Seminario de Innovación Agrícola.</p>
+            </div>
+            <div class="card weather">
+                <h3> Actual Weather</h3>
+                <p><strong>Fray Bentos:</strong> 22°C - Soleado</p>
+            </div>
+            <div class="card forecast">
+                <h3>forecast</h3>
+                <ul>
+                    <li>Wednesday: 24°C ☀️</li>
+                    <li>Thursday: 26°C ☀️</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="spotlights">
+            <h2>Featured Companies</h2>
+            <div class="spotlight-container">
+                
+                <div class="card business-spotlight">
+                    <img src="images/riodulce.png" alt="Logo de Dulce Río" loading="lazy">
+                    <h3>"Dulce Río"</h3><p>Winne .</p><hr><p>info@dulcerio.com</p><a href="#">dulcerio.com</a>
+                </div>
+                <div class="card business-spotlight">
+                    <img src="images/Agro innovacion-logo.png" alt="Logo de Agro-Innovación" loading="lazy">
+                    <h3>"Agro-Innovación"</h3><p>Meat packing</p><hr><p>contacto@agroinnova.uy</p><a href="#">agroinnova.uy</a>
+                </div>
+                <div class="card business-spotlight">
+                    <img src="images/rioaventura.jpg" alt="Logo de Río Aventura" loading="lazy">
+                    <h3>"Río Aventura"</h3><p>Tourism agency.</p><hr><p>info@rioaventura.uy</p><a href="#">rioaventura.uy</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-info"><img src="images/logo.webp" alt="Logo Pequeño" width="100" height="60"><div><p><strong>Trade Face of Río Negro</strong></p><p>18 de Julio 1234, Fray Bentos</p></div></div>
+        <div class="footer-contact"><p>info@traderionegro.uy</p><p>(+598) 1234-5678</p></div>
+        <div class="footer-meta"><p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p><p><strong>Nestor Edison Crossa</strong></p><p>Proyecto WDD 231</p><p>Última Modificación: <span id="last-modified"></span></p></div>
+    </footer>
+   
+    <script src="scripts/main.js" defer></script>
+</body>
+</html>

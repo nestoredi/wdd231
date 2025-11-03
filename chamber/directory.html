@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nestor Edi">
+    <title>Member Directory - Trade Face</title>
+    <meta name="description" content="Directory of member businesses and organizations of the Río Negro Chamber of Commerce.">
+    
+    <!-- NEW: Social Media Metas (Open Graph) -->
+    <meta property="og:title" content="Member Directory - Trade Face of Río Negro">
+    <meta property="og:type" content="website">
+    <!-- IMPORTANT: Replace the following URL with the final URL of your page -->
+    <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/directory.html"> 
+    <!-- IMPORTANT: Replace the following URL with a link to a representative image -->
+    <meta property="og:image" content="https://nestoredi.github.io/wdd231/chamber/images/logo.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <a class="logo-container" href="index.html">
+            <img src="images/logo.webp" alt="Trade Face of Río Negro Logo" width="80" height="80">
+            <div class="site-name">
+                <div class="title">Trade Face</div>
+                <div class="subtitle">of Río Negro</div>
+            </div>
+        </a>
+        <nav>
+            <button id="menu-button" aria-label="Toggle Navigation" aria-expanded="false">☰</button>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a class="active" href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
+        <div class="dark-mode-switch">
+            ☀️<label class="switch"><input type="checkbox"><span class="slider round"></span></label>🌙
+        </div>
+    </header>
+
+    <main class="directory-main">
+        <h1>Member Directory</h1>
+
+        <section>
+            <h2>Our Members</h2>
+            <p>Explore the diverse network of businesses and organizations that are part of our community.</p>
+            <div class="view-toggle">
+                <button id="grid-view-btn" class="active">⏹️ Grid</button>
+                <button id="list-view-btn">📄 List</button>
+            </div>
+        </section>
+
+        <!-- 
+            KEY CORRECTION: Static content has been removed from this container.
+            JavaScript (main.js) will be responsible for fetching data from the JSON file 
+            and generating member cards here.
+        -->
+        <section id="directory-container" class="directory-grid">
+            <h2 class="visually-hidden">List of Businesses</h2>
+            <!-- Members will be loaded dynamically here -->
+        </section>
+
+        <section class="card">
+            <h2>Want to be featured here?</h2>
+            <p>Become part of our growing business network. Discover the benefits and join us today.</p>
+            <a href="join.html" class="hero-action" style="position: static; display: inline-block; margin-top: 1rem;">Join the Chamber</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <img src="images/logo.webp" alt="Small Logo" width="60" height="60">
+            <div>
+                <p><strong>Trade Face of Río Negro</strong></p>
+                <p>18 de Julio 1234, Fray Bentos</p>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <p>info@traderionegro.uy</p>
+            <p>(+598) 1234-5678</p>
+        </div>
+        <div class="footer-meta">
+            <p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p>
+            <p><strong>Nestor Edison Crossa</strong></p>
+            <p>WDD 231 Project</p>
+            <p>Last Modified: <span id="last-modified"></span></p>
+        </div>
+    </footer>
+    <script src="scripts/main.js" defer></script>
+</body>
+</html>

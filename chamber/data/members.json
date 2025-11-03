@@ -1,0 +1,61 @@
+
+{
+  "members": [
+    {
+      "name": "Dulce Río",
+      "address": "Av. 18 de Julio 1234, Fray Bentos",
+      "phone": "(+598) 4567-8901",
+      "website": "https://www.dulcerio.com",
+      "image": "images/riodulce.png",
+      "membership_level": "Gold"
+    },
+    {
+      "name": "Agro-Innovación",
+      "address": "Ruta 2 Km 301, Fray Bentos",
+      "phone": "(+598) 4567-1234",
+      "website": "https://www.agroinnova.uy",
+      "image": "images/Agro innovacion-logo.png",
+      "membership_level": "Silver"
+    },
+    {
+      "name": "Río Aventura",
+      "address": "Rambla Costanera, Fray Bentos",
+      "phone": "(+598) 4567-5678",
+      "website": "https://www.rioaventura.uy",
+      "image": "images/rioaventura.jpg",
+      "membership_level": "Bronze"
+    },
+    {
+      "name": "Código Nativo",
+      "address": "Zorrilla de San Martín 876, Fray Bentos",
+      "phone": "(+598) 4567-9012",
+      "website": "https://www.codigonativo.uy",
+      "image": "images/codigonativo.jpg",
+      "membership_level": "Silver"
+    },
+    {
+      "name": "El Talar Bodega",
+      "address": "Camino Vecinal s/n, Young",
+      "phone": "(+598) 4568-3456",
+      "website": "https://www.eltalar.uy",
+      "image": "images/eltalar.jpg",
+      "membership_level": "Gold"
+    },
+    {
+      "name": "Lácteos Rincón",
+      "address": "Ruta 20 Km 25, Young",
+      "phone": "(+598) 4568-7890",
+      "website": "https://www.lacteosrincon.uy",
+      "image": "images/lacteosrincon.jpg",
+      "membership_level": "Bronze"
+    },
+    {
+      "name": "Fray Bentos Logística",
+      "address": "Barrio Anglo, Fray Bentos",
+      "phone": "(+598) 4567-2345",
+      "website": "https://www.fraybentoslogistica.com",
+      "image": "images/frayventoslogistica.jpg",
+      "membership_level": "Silver"
+    }
+  ]
+}
