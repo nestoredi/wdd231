@@ -1,5 +1,4 @@
-/* ---- CORRECCIÓN: Se añaden las fuentes de Google ---- */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap');
+/* ---- CORRECCIÓN: Se elimina el @import de Google Fonts ---- */
 
 /* ---- ESTILOS GENERALES ---- */
 :root {
@@ -36,6 +35,13 @@ h1, h2, h3 {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* ---- CORRECCIÓN: Se añade una nueva regla para eliminar estilos en línea ---- */
+.card .hero-action {
+    position: static;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
 main {
     max-width: 1200px;
     margin: 1rem auto;
@@ -61,15 +67,18 @@ header {
     padding: 1rem 2rem;
     background-color: var(--header-bg);
     border-bottom: 2px solid var(--secondary-color);
+    /* ---- CORRECCIÓN: Se añade color de texto para mejorar contraste ---- */
+    color: var(--accent-color);
 }
 
 .logo-container { display: flex; align-items: center; text-decoration: none; color: inherit; }
 .logo-container img { margin-right: 1rem; }
 .site-name { font-family: var(--heading-font); }
-.site-name .title { font-size: 1.8rem; font-weight: 600; margin: 0; }
+.site-name .title { font-size: 1.8rem; font-weight: 600; margin: 0; color: var(--accent-color); }
 .site-name .subtitle { margin: -5px 0 0 0; font-size: 1rem; }
 nav ul { list-style: none; display: flex; margin: 0; padding: 0; gap: 0.5rem; }
-nav a { text-decoration: none; color: var(--primary-color); padding: 0.5rem 1rem; font-weight: bold; border-radius: 5px; transition: background-color 0.3s, color 0.3s; }
+/* ---- CORRECCIÓN: Se cambia el color de los enlaces para mejorar contraste ---- */
+nav a { text-decoration: none; color: var(--accent-color); padding: 0.5rem 1rem; font-weight: bold; border-radius: 5px; transition: background-color 0.3s, color 0.3s; }
 nav a:hover, nav a.active { background-color: var(--secondary-color); color: white; }
 #menu-button { display: none; }
 
@@ -122,6 +131,7 @@ body.dark-mode nav a:hover, body.dark-mode nav a.active { background-color: #415
     gap: 1.5rem;
 }
 
+/* .business-spotlight styles are fine as they are for dynamic content */
 .business-spotlight {
     display: flex;
     flex-direction: column;
@@ -228,3 +238,427 @@ footer { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center;
         width: fit-content;
     }
 }
+/* ---- NEW: Styles for Modals ---- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: var(--card-bg-color);
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 2rem;
+    border: 1px solid #888;
+    width: 80%; /* Could be more responsive */
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Dark mode for modals */
+body.dark-mode .modal-content {
+    background-color: var(--card-bg-color); /* Uses dark mode card background */
+    color: var(--text-color);
+    border-color: var(--secondary-color);
+}
+body.dark-mode .modal-content .close-button {
+    color: var(--text-color);
+}
+body.dark-mode .modal-content .close-button:hover,
+body.dark-mode .modal-content .close-button:focus {
+    color: var(--secondary-color);
+}
+
+/* ---- NEW: Styles for Membership Levels Layout and Animation ---- */
+.membership-levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* For the animation on initial load */
+.level-card {
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(20px); /* Start slightly below for animation */
+    animation: fadeUp 0.6s ease-out forwards; /* Apply animation */
+    /* Add a delay for each card */
+}
+.level-card:nth-child(1) { animation-delay: 0.1s; }
+.level-card:nth-child(2) { animation-delay: 0.2s; }
+.level-card:nth-child(3) { animation-delay: 0.3s; }
+.level-card:nth-child(4) { animation-delay: 0.4s; }
+
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.level-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left; /* Align list items to left within card */
+    margin: 1rem 0;
+}
+
+.level-card ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.level-card ul li::before {
+    content: '✅'; /* Checkmark for benefits */
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+}
+
+.level-card .learn-more-btn {
+    display: inline-block;
+    margin-top: auto; /* Push button to bottom */
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.level-card .learn-more-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.join-main {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: 1.5rem;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+
+.join-form-container {
+    padding: 2rem;
+}
+
+.join-form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.join-form-container label {
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+.join-form-container input[type="text"],
+.join-form-container input[type="email"],
+.join-form-container input[type="tel"],
+.join-form-container select,
+.join-form-container textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.join-form-container button[type="submit"] {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.join-form-container button[type="submit"]:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Responsive layout for join-main */
+@media (min-width: 768px) {
+    .join-main {
+        grid-template-columns: 2fr 1fr; /* Form on left, levels on right */
+        grid-template-areas:
+            "form levels"
+            "why-join levels"; /* Adjust as needed for the "why join" section */
+    }
+
+    .join-form-container { grid-area: form; }
+    .membership-levels { grid-area: levels; }
+    .why-join-us { grid-area: why-join; } /* Position why-join below the form */
+
+    .level-card ul { /* Center align lists in wide view */
+        text-align: center;
+    }
+    .level-card ul li {
+        text-align: left; /* Keep checkmark left */
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80%; /* Constrain list width if needed */
+    }
+}
+@media (max-width: 767px) {
+    /* Ensure the "Why Join Us" section is below membership levels on small screens */
+    .join-main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "form"
+            "levels"
+            "why-join";
+    }
+}
+
+/* Dark Mode for Form Elements */
+body.dark-mode .join-form-container input[type="text"],
+body.dark-mode .join-form-container input[type="email"],
+body.dark-mode .join-form-container input[type="tel"],
+body.dark-mode .join-form-container select,
+body.dark-mode .join-form-container textarea {
+    background-color: #3b4d61; /* Darker input background */
+    color: var(--text-color); /* Light text */
+    border-color: var(--secondary-color);
+}
+
+body.dark-mode .join-form-container label {
+    color: var(--text-color);
+}
+/* --- EXISTING CSS FOR .discover-main SHOULD BE REMOVED/OVERWRITTEN --- */
+/* Your current .discover-main has flexbox/grid for internal sections.
+   The new approach will apply grid directly to #places-of-interest-grid. */
+
+.discover-main {
+    max-width: 1200px; /* Keep consistent with other main sections */
+    margin: 1rem auto;
+    padding: 0 1rem;
+    display: grid; /* Use grid for the main layout of discover page */
+    gap: 1.5rem;
+}
+
+/* Specific styling for the visit message card */
+#visit-message-card {
+    text-align: center;
+    background-color: var(--card-bg-color);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* Initially hide this or animate it in if desired */
+}
+#visit-message-card h2 {
+    color: var(--secondary-color);
+}
+body.dark-mode #visit-message-card {
+    background-color: var(--card-bg-color);
+    border-color: var(--secondary-color);
+}
+
+
+/* --- NEW: Grid for Places of Interest (8 Cards) --- */
+.discover-grid {
+    display: grid;
+    gap: 1.5rem;
+    /* This will be overwritten by media queries for grid-template-areas */
+    grid-template-columns: 1fr; /* Default for very small screens */
+}
+
+.place-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex; /* Helps align content within each card */
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden; /* Ensure image hover effects stay within bounds */
+    position: relative; /* For potential z-index on hover */
+}
+
+.place-card h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.place-card figure {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Important for hover effect on image */
+    position: relative; /* For the image hover effect */
+}
+
+.place-card img {
+    width: 100%;
+    height: 200px; /* Fixed height as per requirement */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition for hover */
+    display: block; /* Remove extra space below image */
+}
+
+.place-card figcaption {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+body.dark-mode .place-card figcaption {
+    color: #bbb;
+}
+
+.place-card address {
+    font-style: normal; /* Override default italic address */
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+body.dark-mode .place-card address {
+    color: #ccc;
+}
+
+.place-card p {
+    flex-grow: 1; /* Allows description to take up available space */
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.place-card .learn-more-btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Push button to bottom */
+}
+
+.place-card .learn-more-btn:hover {
+    background-color: var(--primary-color);
+}
+
+/* Dark mode for discover cards */
+body.dark-mode .place-card {
+    background-color: var(--card-bg-color);
+    border-color: var(--secondary-color);
+}
+body.dark-mode .place-card h2 {
+    color: var(--primary-color);
+}
+
+
+/* --- Media Queries for Grid Layouts and Image Hover --- */
+
+/* Small Screens: 320px to 640px wide */
+@media (min-width: 320px) and (max-width: 640px) {
+    .discover-grid {
+        grid-template-columns: 1fr; /* Single column */
+        grid-template-areas:
+            "card1"
+            "card2"
+            "card3"
+            "card4"
+            "card5"
+            "card6"
+            "card7"
+            "card8";
+    }
+
+    /* No hover effect on images for mobile view */
+    .place-card img:hover {
+        transform: none;
+        filter: none;
+    }
+}
+
+/* Medium Screens: 641px to 1024px wide */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .discover-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        grid-template-areas:
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+    }
+
+    /* Image Hover Effect for Medium Screens */
+    .place-card img:hover {
+        transform: scale(1.05); /* Slight zoom */
+        filter: brightness(0.8) saturate(1.2); /* Darken and increase saturation */
+    }
+}
+
+/* Large Screens: 1025px and above */
+@media (min-width: 1025px) {
+    .discover-grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns */
+        /* Example grid areas for a 3-column layout, adjust as desired */
+        grid-template-areas:
+            "card1 card2 card3"
+            "card4 card5 card6"
+            "card7 card8 ."; /* Last row could have empty cell or different layout */
+    }
+    
+    /* Image Hover Effect for Large Screens */
+    .place-card img:hover {
+        transform: scale(1.1); /* More pronounced zoom */
+        filter: brightness(0.7) grayscale(0.2); /* Darken and slight grayscale */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Add shadow */
+    }
+}
+
+/* Assign grid areas to each card */
+.place-card:nth-child(1) { grid-area: card1; }
+.place-card:nth-child(2) { grid-area: card2; }
+.place-card:nth-child(3) { grid-area: card3; }
+.place-card:nth-child(4) { grid-area: card4; }
+.place-card:nth-child(5) { grid-area: card5; }
+.place-card:nth-child(6) { grid-area: card6; }
+.place-card:nth-child(7) { grid-area: card7; }
+.place-card:nth-child(8) { grid-area: card8; }
