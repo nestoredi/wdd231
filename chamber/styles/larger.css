@@ -1,0 +1,135 @@
+/* ---- RESPONSIVE DESIGN FOR LARGER SCREENS ---- */
+
+@media (max-width: 900px) {
+    .discover-main, .join-main { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    header { flex-direction: column; }
+    nav { width: 100%; }
+    nav ul { display: none; flex-direction: column; width: 100%; text-align: center; }
+    nav ul.open { display: flex; }
+    #menu-button { display: block; position: absolute; top: 1.5rem; right: 1.5rem; font-size: 2rem; background: none; border: none; cursor: pointer; color: var(--accent-color); }
+    
+    footer { grid-template-columns: 1fr; gap: 1rem; }
+    .footer-info, .footer-contact, .footer-meta { text-align: center; }
+    .footer-info { justify-content: center; }
+    
+    .directory-list .member-card { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+    }
+    .directory-list .member-card img {
+        margin: 0 auto 1rem;
+    }
+
+    .hero-action {
+        position: static;
+        display: block;
+        margin: 1rem auto 0;
+        width: fit-content;
+    }
+}
+
+/* Responsive layout for join-main */
+@media (min-width: 768px) {
+    .join-main {
+        grid-template-columns: 2fr 1fr; /* Form on left, levels on right */
+        grid-template-areas:
+            "form levels"
+            "why-join levels"; /* Adjust as needed for the "why join" section */
+    }
+
+    .join-form-container { grid-area: form; }
+    .membership-levels { grid-area: levels; }
+    .why-join-us { grid-area: why-join; } /* Position why-join below the form */
+
+    .level-card ul { /* Center align lists in wide view */
+        text-align: center;
+    }
+    .level-card ul li {
+        text-align: left; /* Keep checkmark left */
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80%; /* Constrain list width if needed */
+    }
+}
+
+@media (max-width: 767px) {
+    /* Ensure the "Why Join Us" section is below membership levels on small screens */
+    .join-main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "form"
+            "levels"
+            "why-join";
+    }
+}
+
+/* --- Media Queries for Discover Grid Layouts and Image Hover --- */
+
+/* Small Screens: 320px to 640px wide */
+@media (min-width: 320px) and (max-width: 640px) {
+    .discover-grid {
+        grid-template-columns: 1fr; /* Single column */
+        grid-template-areas:
+            "card1"
+            "card2"
+            "card3"
+            "card4"
+            "card5"
+            "card6"
+            "card7"
+            "card8";
+    }
+    /* No hover effect on images for mobile view */
+    .place-card img:hover {
+        transform: none;
+        filter: none;
+    }
+}
+
+/* Medium Screens: 641px to 1024px wide */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .discover-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        grid-template-areas:
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+    }
+    /* Image Hover Effect for Medium Screens */
+    .place-card img:hover {
+        transform: scale(1.05); /* Slight zoom */
+        filter: brightness(0.8) saturate(1.2); /* Darken and increase saturation */
+    }
+}
+
+/* Large Screens: 1025px and above */
+@media (min-width: 1025px) {
+    .discover-grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns */
+        grid-template-areas:
+            "card1 card2 card3"
+            "card4 card5 card6"
+            "card7 card8 .";
+    }
+    
+    /* Image Hover Effect for Large Screens */
+    .place-card img:hover {
+        transform: scale(1.1); /* More pronounced zoom */
+        filter: brightness(0.7) grayscale(0.2); /* Darken and slight grayscale */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Add shadow */
+    }
+}
+
+/* Assign grid areas to each card */
+.place-card:nth-child(1) { grid-area: card1; }
+.place-card:nth-child(2) { grid-area: card2; }
+.place-card:nth-child(3) { grid-area: card3; }
+.place-card:nth-child(4) { grid-area: card4; }
+.place-card:nth-child(5) { grid-area: card5; }
+.place-card:nth-child(6) { grid-area: card6; }
+.place-card:nth-child(7) { grid-area: card7; }
+.place-card:nth-child(8) { grid-area: card8; }
