@@ -97,7 +97,10 @@ body.dark-mode {
     --header-bg: #1b2f45;
 }
 body.dark-mode a { color: #89cff0; }
-body.dark-mode .card { border-color: #415a77; }
+body.dark-mode .card { 
+    background-color: var(--card-bg-color); /* CORRECCIÓN: Se añade explícitamente */
+    border-color: #415a77; 
+}
 body.dark-mode nav a:hover, body.dark-mode nav a.active { background-color: #415a77; color: #ffffff; }
 body.dark-mode footer { color: var(--text-color); }
 body.dark-mode footer a { color: var(--secondary-color); }
@@ -204,6 +207,12 @@ footer a { color: var(--accent-color); }
 .member-card a { font-weight: bold; }
 .member-card .membership-level { font-size: 0.9em; font-style: italic; color: var(--secondary-color); }
 
+/* ---- MODALS ---- */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); padding-top: 60px; }
+.modal-content { background-color: var(--card-bg-color); margin: 5% auto; padding: 2rem; border: 1px solid #888; width: 80%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); position: relative; animation-name: animatetop; animation-duration: 0.4s; }
+@keyframes animatetop { from {top: -300px; opacity: 0} to {top: 0; opacity: 1} }
+.close-button { color: #aaa; float: right; font-size: 28px; font-weight: bold; }
+.close-button:hover, .close-button:focus { color: #000000; text-decoration: none; cursor: pointer; }
 
 /* ---- MEMBERSHIP LEVELS & JOIN PAGE ---- */
 .membership-levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; text-align: center; }
@@ -216,107 +225,4 @@ footer a { color: var(--accent-color); }
 .level-card ul { list-style: none; padding: 0; text-align: left; margin: 1rem 0; }
 .level-card ul li { margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; }
 .level-card ul li::before { content: '✅'; position: absolute; left: 0; color: var(--secondary-color); }
-.level-card .learn-more-btn { display: inline-block; margin-top: auto; padding: 0.5rem 1rem; background-color: var(--secondary-color); color: #ffffff; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background-color 0.3s ease; }
-.level-card .learn-more-btn:hover { background-color: var(--primary-color); }
-
-.join-main { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 1rem auto; padding: 0 1rem; }
-.join-form-container { padding: 2rem; }
-
-/* --- AESTHETIC FORM STYLES (NUEVO) --- */
-.join-form-container form {
-    display: grid;
-    gap: 1.2rem; /* Aumenta el espacio entre campos */
-}
-
-.join-form-container label {
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: var(--secondary-color); /* Color más suave para las etiquetas */
-    margin-bottom: -0.8rem; /* Acerca la etiqueta a su campo */
-}
-
-.join-form-container input[type="text"],
-.join-form-container input[type="email"],
-.join-form-container input[type="tel"],
-.join-form-container select,
-.join-form-container textarea {
-    padding: 0.9rem;
-    border: 2px solid #ddd; /* Borde más grueso y suave */
-    border-radius: 8px; /* Bordes más redondeados */
-    font-size: 1rem;
-    font-family: var(--body-font);
-    transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para el foco */
-}
-
-/* Efecto de Foco para los campos */
-.join-form-container input:focus,
-.join-form-container select:focus,
-.join-form-container textarea:focus {
-    outline: none; /* Quita el contorno por defecto del navegador */
-    border-color: var(--secondary-color); /* Cambia el color del borde al color del tema */
-    box-shadow: 0 0 8px rgba(65, 90, 119, 0.4); /* Añade una sombra sutil */
-}
-
-.join-form-container button[type="submit"] {
-    margin-top: 1.5rem;
-    padding: 1rem 1.5rem;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border: none;
-    border-radius: 8px; /* Coincide con el radio de los campos */
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-}
-
-.join-form-container button[type="submit"]:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px); /* Efecto de "levantar" el botón */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-/* Fin de Aesthetic Form Styles */
-
-
-/* Join Form Dark Mode */
-body.dark-mode .join-form-container input[type="text"],
-body.dark-mode .join-form-container input[type="email"],
-body.dark-mode .join-form-container input[type="tel"],
-body.dark-mode .join-form-container select,
-body.dark-mode .join-form-container textarea {
-    background-color: #3b4d61;
-    color: var(--text-color);
-    border-color: #415a77; /* Borde oscuro más sutil */
-}
-body.dark-mode .join-form-container label {
-    color: var(--secondary-color);
-}
-
-/* ---- DISCOVER PAGE ---- */
-.discover-main { max-width: 1200px; margin: 1rem auto; padding: 0 1rem; display: grid; gap: 1.5rem; }
-#visit-message-card { text-align: center; }
-body.dark-mode #visit-message-card { background-color: var(--card-bg-color); border-color: var(--secondary-color); }
-
-.discover-grid { 
-    display: grid; 
-    gap: 1.5rem; 
-    grid-template-columns: 1fr;
-}
-.place-card { 
-    display: flex; 
-    flex-direction: column; 
-    text-align: center; 
-    overflow: hidden; 
-}
-.place-card img { 
-    width: 100%; 
-    height: 200px; 
-    object-fit: cover; 
-    border-radius: 5px; 
-    margin-bottom: 0.5rem; 
-    transition: transform 0.3s ease, filter 0.3s ease; 
-}
-.place-card p { flex-grow: 1; }
-.place-card .learn-more-btn { margin-top: auto; }
-
-/* Dark Mode para Discover Page *
+.level-card .learn-more-btn { display: inline-block; margin-top: auto; padding: 0.5rem 1rem; background-color: var(--secondary-color); color: #ffffff; 
