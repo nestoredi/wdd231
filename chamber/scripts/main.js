@@ -1,8 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // --- General Functionality (Always active) ---
+    const copyrightYearElement = document.getElementById('copyright-year');
+    if (copyrightYearElement) {
+        copyrightYearElement.textContent = new Date().getFullYear();
+    }
+    const lastModifiedElement = document.getElementById('last-modified');
+    if (lastModifiedElement) {
+        lastModifiedElement.textContent = document.lastModified;
+    }
+
+    const menuButton = document.getElementById('menu-button');
+    const navLinks = document.getElementById('nav-links');
+    if (menuButton && navLinks) {
+        menuButton.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            menuButton.textContent = isOpen ? '✕' : '☰';
+            menuButton.setAttribute('aria-expanded', isOpen);
+        });
+    }
+
     // --- Discover Page Functionality ---
     const placesOfInterestGrid = document.getElementById('places-of-interest-grid');
     const visitMessageElement = document.getElementById('visit-message');
+    const discoverDataUrl = 'data/discover-places.json';
 
     const setupVisitMessage = () => {
         if (!visitMessageElement) return;
@@ -28,10 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('lastVisitTimestamp', now.toString());
     };
 
-    const discoverDataUrl = 'data/discover-places.json';
-
     const displayDiscoverPlaces = (places) => {
-        if (!placesOfInterestGrid) return;
+        if (!placesOfInterestGrid) return; // Safeguard
         placesOfInterestGrid.innerHTML = '';
 
         places.forEach((place) => {
@@ -51,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const getDiscoverPlacesData = async () => {
-        if (!placesOfInterestGrid) return;
+        if (!placesOfInterestGrid) return; // Safeguard
         try {
             const response = await fetch(discoverDataUrl);
             if (response.ok) {
@@ -62,9 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } catch (error) {
             console.error('Error loading discover places data:', error);
-            if (placesOfInterestGrid) {
-                placesOfInterestGrid.innerHTML = '<p>Error al cargar los lugares de interés. Por favor, inténtalo de nuevo más tarde.</p>';
-            }
+            placesOfInterestGrid.innerHTML = '<p>Error al cargar los lugares de interés. Por favor, inténtalo de nuevo más tarde.</p>';
         }
     };
 
@@ -73,70 +90,36 @@ document.addEventListener('DOMContentLoaded', function() {
         getDiscoverPlacesData();
     }
     
-    // --- General Functionality ---
-    const copyrightYearElement = document.getElementById('copyright-year');
-    if (copyrightYearElement) {
-        copyrightYearElement.textContent = new Date().getFullYear();
-    }
-    const lastModifiedElement = document.getElementById('last-modified');
-    if (lastModifiedElement) {
-        lastModifiedElement.textContent = document.lastModified;
-    }
-
-    const menuButton = document.getElementById('menu-button');
-    const navLinks = document.getElementById('nav-links');
-    if (menuButton && navLinks) {
-        menuButton.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('open');
-            menuButton.textContent = isOpen ? '✕' : '☰';
-            menuButton.setAttribute('aria-expanded', isOpen);
-        });
-    }
-
-    const darkModeToggle = document.querySelector('.dark-mode-switch input[type="checkbox"]');
-    if (darkModeToggle) {
-        const applyTheme = (isDark) => {
-            document.body.classList.toggle('dark-mode', isDark);
-            darkModeToggle.checked = isDark;
-        };
-        const savedTheme = localStorage.getItem('theme');
-        applyTheme(savedTheme === 'dark');
-        
-        darkModeToggle.addEventListener('change', function() {
-            localStorage.setItem('theme', this.checked ? 'dark' : 'light');
-            applyTheme(this.checked);
-        });
-    }
-    
-    // --- Directory Page ---
+    // --- Directory Page Functionality ---
     const gridBtn = document.getElementById('grid-view-btn');
     const listBtn = document.getElementById('list-view-btn');
     const directoryContainer = document.getElementById('directory-container');
+    const membersDataUrl = 'data/members.json'; 
 
-    if (gridBtn && listBtn && directoryContainer) {
+    if (gridBtn && listBtn && directoryContainer) { // Ensure elements exist before adding listeners
         gridBtn.addEventListener('click', () => {
-            // CORRECCIÓN: Usar classList.replace() para cambiar de forma segura
             if (directoryContainer.classList.contains('directory-list')) {
                 directoryContainer.classList.replace('directory-list', 'directory-grid');
+            } else if (!directoryContainer.classList.contains('directory-grid')) {
+                directoryContainer.classList.add('directory-grid'); // Add if neither
             }
             gridBtn.classList.add('active');
             listBtn.classList.remove('active');
         });
 
         listBtn.addEventListener('click', () => {
-            // CORRECCIÓN: Usar classList.replace() para cambiar de forma segura
             if (directoryContainer.classList.contains('directory-grid')) {
                 directoryContainer.classList.replace('directory-grid', 'directory-list');
+            } else if (!directoryContainer.classList.contains('directory-list')) {
+                directoryContainer.classList.add('directory-list'); // Add if neither
             }
             listBtn.classList.add('active');
             gridBtn.classList.remove('active');
         });
     }
     
-    const membersDataUrl = 'data/members.json'; 
-
     const displayMembers = (members) => {
-        if (!directoryContainer) return;
+        if (!directoryContainer) return; // Safeguard
         directoryContainer.innerHTML = ''; 
 
         members.forEach(member => {
@@ -156,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const getMembersData = async () => {
-        if (!directoryContainer) return;
+        if (!directoryContainer) return; // Safeguard
         try {
             const response = await fetch(membersDataUrl);
             if (response.ok) {
@@ -171,11 +154,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    if (directoryContainer) {
+    if (document.querySelector('main.directory-main')) { // Run only if on the directory page
         getMembersData();
     }
 
-    // --- Home Page ---
+
+    // --- Home Page Functionality (Weather and Spotlights) ---
+    const isHomePage = document.querySelector('main h1') && document.querySelector('main h1').textContent.includes('Cámara de Comercio');
+
     const displayWeather = (weatherData, forecastData) => {
         const currentTempElement = document.getElementById('current-temp');
         const currentDescElement = document.getElementById('current-description');
@@ -210,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${weatherAPIKey}`;
         const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${weatherAPIKey}`;
         
-        if (!document.getElementById('weather-card')) return;
+        if (!document.getElementById('weather-card')) return; // Safeguard
 
         try {
             const [weatherResponse, forecastResponse] = await Promise.all([fetch(weatherUrl), fetch(forecastUrl)]);
@@ -226,12 +212,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const displaySpotlights = (members) => {
         const spotlightContainer = document.getElementById('spotlight-container');
-        if (!spotlightContainer) return;
+        if (!spotlightContainer) return; // Safeguard
         spotlightContainer.innerHTML = '';
 
         const eligibleMembers = members.filter(m => m.membership_level === 'Gold' || m.membership_level === 'Silver');
         const shuffled = eligibleMembers.sort(() => 0.5 - Math.random());
-        const selected = shuffled.slice(0, Math.floor(Math.random() * 2) + 2);
+        // Select 2 to 4 members
+        const selected = shuffled.slice(0, Math.floor(Math.random() * 3) + 2); // Randomly select 2, 3, or 4
 
         selected.forEach(member => {
             let card = document.createElement('div');
@@ -247,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const getSpotlightData = async () => {
-        if (!document.getElementById('spotlight-container')) return;
+        if (!document.getElementById('spotlight-container')) return; // Safeguard
         try {
             const response = await fetch(membersDataUrl);
             if (response.ok) {
@@ -261,8 +248,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    if (document.querySelector('main h1') && document.querySelector('main h1').textContent.includes('Cámara de Comercio')) {
+    if (isHomePage) {
         getWeatherData();
         getSpotlightData();
+    }
+
+    // --- Join Page Modals & Form Load Time (Only if on Join page) ---
+    const joinMain = document.querySelector('main.join-main');
+    if (joinMain) {
+        const learnMoreButtons = document.querySelectorAll('.membership-levels .learn-more-btn');
+        const modals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.close-button');
+
+        learnMoreButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const levelCard = this.closest('.level-card');
+                const level = levelCard.dataset.level;
+                const modalId = `modal-${level.toLowerCase()}`;
+                const targetModal = document.getElementById(modalId);
+                if (targetModal) {
+                    targetModal.style.display = 'block';
+                }
+            });
+        });
+
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                this.closest('.modal').style.display = 'none';
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            modals.forEach(modal => {
+                if (event.target === modal) { // Use strict equality
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // --- Join Page Form Load Time ---
+        const formLoadTimeInput = document.getElementById('form-load-time');
+        if (formLoadTimeInput) {
+            formLoadTimeInput.value = new Date().toISOString();
+        }
     }
 });

@@ -196,52 +196,29 @@ footer a { color: var(--accent-color); }
 
 
 /* ========================================= */
-/* --- DARK MODE SWITCH Y ESTILOS GLOBALES --- */
+/* --- ESTILOS GLOBALES --- */
 /* ========================================= */
-.dark-mode-switch { display: flex; align-items: center; }
-.switch { position: relative; display: inline-block; width: 60px; height: 34px; }
-.switch input { opacity: 0; width: 0; height: 0; }
-.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; }
-.slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: .4s; }
-input:checked + .slider { background-color: var(--secondary-color); }
-input:checked + .slider:before { transform: translateX(26px); }
-.slider.round { border-radius: 34px; }
-.slider.round:before { border-radius: 50%; }
-
-body.dark-mode {
-    --primary-color: #f1f1f1;
-    --secondary-color: #77aaff;
-    --text-color: #e0e1dd;
-    --bg-color: #0d1b2a;
-    --card-bg-color: #1b2f45;
-    --header-bg: #1b2f45;
-    --border-color: #415a77;
-    --shadow-color: rgba(0, 0, 0, 0.2);
-    --shadow-strong-color: rgba(0, 0, 0, 0.7);
-}
 
 /* Dark Mode para componentes reutilizables */
-body.dark-mode a { color: #89cff0; }
-body.dark-mode footer a { color: var(--secondary-color); }
-body.dark-mode .view-toggle button { background-color: var(--bg-color); } /* Asumiendo que el botón debe tener el fondo de la página */
-body.dark-mode .view-toggle button.active { background-color: var(--secondary-color); color: #fff; }
+.view-toggle button { background-color: var(--bg-color); } /* Asumiendo que el botón debe tener el fondo de la página */
+.view-toggle button.active { background-color: var(--secondary-color); color: #fff; }
 
 /* Dark Mode para formulario y modales */
-body.dark-mode .join-form-container input[type="text"],
-body.dark-mode .join-form-container input[type="email"],
-body.dark-mode .join-form-container input[type="tel"],
-body.dark-mode .join-form-container select,
-body.dark-mode .join-form-container textarea {
-    background-color: #2a415a;
+.join-form-container input[type="text"],
+.join-form-container input[type="email"],
+.join-form-container input[type="tel"],
+.join-form-container select,
+.join-form-container textarea {
+    background-color: #fff;
     color: var(--text-color);
 }
-body.dark-mode .join-form-container input:focus,
-body.dark-mode .join-form-container select:focus,
-body.dark-mode .join-form-container textarea:focus {
-    box-shadow: 0 0 8px rgba(119, 170, 255, 0.5);
+.join-form-container input:focus,
+.join-form-container select:focus,
+.join-form-container textarea:focus {
+    box-shadow: 0 0 8px rgba(65, 90, 119, 0.4);
 }
 
-body.dark-mode .modal-content { color: var(--text-color); }
-body.dark-mode .close-button { color: var(--text-color); }
-body.dark-mode .close-button:hover,
-body.dark-mode .close-button:focus { color: var(--secondary-color); }
+.modal-content { color: var(--text-color); }
+.close-button { color: #aaa; }
+.close-button:hover,
+.close-button:focus { color: #000; }
