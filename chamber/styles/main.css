@@ -2,7 +2,7 @@
 :root {
     --primary-color: #0d1b2a;
     --secondary-color: #415a77;
-    --accent-color: #f0f0f0;
+    --accent-color: #f0f0f0; /* Color claro para texto sobre fondos oscuros */
     --text-color: #333;
     --bg-color: #ffffff;
     --card-bg-color: #f8f9fa;
@@ -99,11 +99,35 @@ body.dark-mode {
 body.dark-mode a { color: #89cff0; }
 body.dark-mode .card { border-color: #415a77; }
 body.dark-mode nav a:hover, body.dark-mode nav a.active { background-color: #415a77; color: #ffffff; }
+/* CORRECCIÓN: Asegurar que el texto del footer en modo oscuro también sea legible */
+body.dark-mode footer { color: var(--text-color); }
+body.dark-mode footer a { color: var(--secondary-color); }
+
 
 /* ---- HERO SECTION (HOME) ---- */
-.hero { position: relative; text-align: center; color: #ffffff; margin-bottom: 1rem; }
+.hero { 
+    position: relative; 
+    text-align: center; 
+    color: #ffffff; 
+    margin-bottom: 1rem; 
+    /* CORRECCIÓN: Añadida sombra de texto para garantizar contraste sobre la imagen */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
 .hero img { width: 100%; height: auto; display: block; border-radius: 8px; }
-.hero-action { position: absolute; bottom: 2rem; right: 2rem; padding: 0.8rem 1.5rem; background-color: var(--secondary-color); color: #ffffff; text-decoration: none; font-size: 1.2rem; border-radius: 5px; box-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
+.hero-action { 
+    position: absolute; 
+    bottom: 2rem; 
+    right: 2rem; 
+    padding: 0.8rem 1.5rem; 
+    background-color: var(--secondary-color); 
+    color: #ffffff; 
+    text-decoration: none; 
+    font-size: 1.2rem; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    /* La sombra de texto del contenedor hero no es necesaria aquí por el fondo sólido */
+    text-shadow: none; 
+}
 
 /* ---- HOME GRID (EVENTS, WEATHER) ---- */
 .home-grid { 
@@ -121,7 +145,23 @@ body.dark-mode nav a:hover, body.dark-mode nav a.active { background-color: #415
 .business-spotlight hr { margin-top: auto; margin-bottom: 0.5rem; }
 
 /* ---- FOOTER ---- */
-footer { display: grid; grid-template-columns: 1fr; gap: 1rem; text-align: center; padding: 1rem; background-color: var(--header-bg); border-top: 2px solid var(--secondary-color); margin-top: 2rem; font-size: 0.9rem; }
+footer { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 1rem; 
+    text-align: center; 
+    padding: 1rem; 
+    background-color: var(--header-bg); 
+    border-top: 2px solid var(--secondary-color); 
+    margin-top: 2rem; 
+    font-size: 0.9rem;
+    /* CORRECCIÓN: Se establece un color de texto claro para alto contraste */
+    color: var(--accent-color);
+}
+footer a {
+    /* CORRECCIÓN: Asegurar que los enlaces en el footer también sean claros */
+    color: var(--accent-color);
+}
 .footer-info, .footer-contact, .footer-meta { padding: 0 1rem; }
 .footer-info { display: flex; align-items: center; justify-content: center; }
 .footer-info img { margin-right: 10px; }
@@ -130,47 +170,4 @@ footer { display: grid; grid-template-columns: 1fr; gap: 1rem; text-align: cente
 /* ---- PÁGINA DIRECTORY ---- */
 .directory-main { text-align: center; }
 .view-toggle { margin: 1rem 0; }
-.view-toggle button { padding: 0.5rem 1rem; border: 1px solid var(--secondary-color); background-color: #ffffff; cursor: pointer; font-size: 1rem; }
-.view-toggle button.active { background-color: var(--secondary-color); color: #ffffff; }
-
-.directory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-.directory-grid .member-card { text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
-.directory-grid .member-card img { max-width: 150px; height: auto; margin: 0 auto 1rem; }
-.directory-list { display: flex; flex-direction: column; gap: 1rem; }
-.directory-list .member-card { display: grid; grid-template-columns: 150px 1fr; align-items: center; text-align: left; gap: 1.5rem; }
-.directory-list .member-card img { max-width: 150px; width: 100%; height: auto; }
-.member-card h3 { margin-top: 0; }
-.member-card p { margin: 0.3rem 0; }
-.member-card a { font-weight: bold; }
-.member-card .membership-level { font-size: 0.9em; font-style: italic; color: var(--secondary-color); }
-
-/* ---- DISCOVER PAGE ---- */
-.discover-main { max-width: 1200px; margin: 1rem auto; padding: 0 1rem; display: grid; gap: 1.5rem; }
-#visit-message-card { text-align: center; }
-body.dark-mode #visit-message-card { background-color: var(--card-bg-color); border-color: var(--secondary-color); }
-
-.discover-grid { 
-    display: grid; 
-    gap: 1.5rem; 
-    grid-template-columns: 1fr; /* Una columna para la vista móvil */
-}
-.place-card { 
-    display: flex; 
-    flex-direction: column; 
-    text-align: center; 
-    overflow: hidden; 
-}
-.place-card img { 
-    width: 100%; 
-    height: 200px; 
-    object-fit: cover; 
-    border-radius: 5px; 
-    margin-bottom: 0.5rem; 
-    transition: transform 0.3s ease, filter 0.3s ease; 
-}
-.place-card p { flex-grow: 1; }
-.place-card .learn-more-btn { margin-top: auto; }
-
-/* Dark Mode para Discover Page */
-body.dark-mode .place-card { background-color: var(--card-bg-color); border-color: var(--secondary-color); }
-body.dark-mode .place-card h2 { color: var(--primary-color); }
+.view-toggle butto
