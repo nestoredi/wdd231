@@ -142,8 +142,7 @@
     }
 }
 
-/* CORRECCIÓN: Se mueven las asignaciones de grid-area DENTRO de una media query */
-/* para que no afecten a la vista de celular. */
+/* Grid Area Assignments (must be inside a media query) */
 @media (min-width: 641px) {
     .place-card:nth-child(1) { grid-area: card1; }
     .place-card:nth-child(2) { grid-area: card2; }
