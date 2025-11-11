@@ -1,29 +1,33 @@
+--- START OF FILE index.html ---
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Nestor Edison Crossa">
-    <title>Trade Face of Río Negro - Cámara de Comercio</title>
-    <meta name="description" content="Sitio web oficial de la Cámara de Comercio de Río Negro, Uruguay. Fomentando el comercio y la comunidad local.">
+    <title>Trade Face of Río Negro - Chamber of Commerce</title>
+    <meta name="description" content="Official website of the Río Negro Chamber of Commerce, Uruguay. Fostering trade and local community.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
     
+    <!-- NUEVO: Metas para Redes Sociales (Open Graph) -->
     <meta property="og:title" content="Home page - Trade Face of Río Negro">
     <meta property="og:type" content="website">
+    <!-- CORRECCIÓN: URL actualizada para la página de inicio -->
     <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/index.html"> 
     <meta property="og:image" content="https://nestoredi.github.io/wdd231/chamber/images/logo.webp">
     
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/larger.css">
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <header>
         <a class="logo-container" href="index.html">
-            <img src="images/logo.webp" alt="Logo Trade Face of Río Negro" width="80" height="80">
+            <img src="images/logo.webp" alt="Trade Face of Río Negro Logo" width="150" height="80">
+            
             <div class="site-name">
                 <div class="title">Trade Face</div>
                 <div class="subtitle">of Río Negro</div>
@@ -44,42 +48,45 @@
     </header>
 
     <main>
-        <h1>Cámara de Comercio de Río Negro</h1>
+        <h1>Rio Negro Chamber of Commerce</h1>
         <section class="hero">
-            <h2 class="visually-hidden">Bienvenido a Río Negro</h2>
-            <img src="images/rionegro.webp" alt="Paisaje del Anglo en Río Negro" loading="lazy" width="1200" height="600">
-            <a href="join.html" class="hero-action">Únete a Nosotros</a>
+            <h2 class="visually-hidden">Welcome to Río Negro</h2>
+            <img src="images/rionegro.webp" alt="Landscape of the Anglo in Río Negro" loading="lazy" width="1200" height="600">
+            <a href="join.html" class="hero-action">Join Us</a>
         </section>
 
         <section class="home-grid">
-            <div id="events-card" class="card events">
-                <h3>Eventos</h3>
-                <p><strong>Próximo evento:</strong> Seminario de Innovación Agrícola.</p>
+            <h2 class="visually-hidden">Events and Weather</h2>
+            <div class="card events">
+                <h3>Events</h3>
+                <p><strong>Next events:</strong> Seminario de Innovación Agrícola.</p>
+                <!-- This content will likely remain static or be loaded from a separate events.json if you extend it -->
             </div>
-            <div id="weather-card" class="card weather">
-                <h3>Clima Actual</h3>
-                <p id="current-temp">Cargando...</p>
+            <div class="card weather" id="weather-card">
+                <h3>Current Weather</h3>
+                <p id="current-temp">Loading...</p>
                 <p id="current-description"></p>
             </div>
-            <div id="forecast-card" class="card forecast">
-                <h3>Pronóstico a 3 Días</h3>
+            <div class="card forecast" id="forecast-card">
+                <h3>3-Day Forecast</h3>
                 <ul id="forecast-list">
-                    <li>Cargando...</li>
+                    <li>Loading...</li>
                 </ul>
             </div>
         </section>
 
         <section class="spotlights">
-            <h2>Empresas Destacadas</h2>
-            <div id="spotlight-container" class="spotlight-container">
-                <p>Cargando empresas...</p>
+            <h2>Featured Companies</h2>
+            <div class="spotlight-container" id="spotlight-container">
+                <!-- Spotlights will be loaded dynamically by JavaScript -->
+                <p>Loading featured companies...</p>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-info">
-            <img src="images/logo.webp" alt="Logo Pequeño" width="60" height="60">
+            <img src="images/logo.webp" alt="Trade Face of Río Negro Logo" width="100" height="60">
             <div>
                 <p><strong>Trade Face of Río Negro</strong></p>
                 <p>18 de Julio 1234, Fray Bentos</p>
@@ -92,8 +99,8 @@
         <div class="footer-meta">
             <p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p>
             <p><strong>Nestor Edison Crossa</strong></p>
-            <p>Proyecto WDD 231</p>
-            <p>Última Modificación: <span id="last-modified"></span></p>
+            <p>WDD 231 Project</p>
+            <p>Last Modified: <span id="last-modified"></span></p>
         </div>
     </footer>
    

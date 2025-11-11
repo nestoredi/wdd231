@@ -142,12 +142,15 @@
     }
 }
 
-/* Grid Area Assignments (no media query needed) */
-.place-card:nth-child(1) { grid-area: card1; }
-.place-card:nth-child(2) { grid-area: card2; }
-.place-card:nth-child(3) { grid-area: card3; }
-.place-card:nth-child(4) { grid-area: card4; }
-.place-card:nth-child(5) { grid-area: card5; }
-.place-card:nth-child(6) { grid-area: card6; }
-.place-card:nth-child(7) { grid-area: card7; }
-.place-card:nth-child(8) { grid-area: card8; }
+/* CORRECCIÓN: Se mueven las asignaciones de grid-area DENTRO de una media query */
+/* para que no afecten a la vista de celular. */
+@media (min-width: 641px) {
+    .place-card:nth-child(1) { grid-area: card1; }
+    .place-card:nth-child(2) { grid-area: card2; }
+    .place-card:nth-child(3) { grid-area: card3; }
+    .place-card:nth-child(4) { grid-area: card4; }
+    .place-card:nth-child(5) { grid-area: card5; }
+    .place-card:nth-child(6) { grid-area: card6; }
+    .place-card:nth-child(7) { grid-area: card7; }
+    .place-card:nth-child(8) { grid-area: card8; }
+}

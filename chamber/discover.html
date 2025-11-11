@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CORRECCIÓN: Autor consistente con otros archivos -->
     <meta name="author" content="Nestor Edison Crossa">
-    <title>Directorio - Trade Face</title>
-    <meta name="description" content="Directorio de empresas y organizaciones miembro de la Cámara de Comercio de Río Negro.">
+    <title>Descubre Río Negro - Trade Face</title>
+    <!-- CORRECCIÓN: Descripción en español -->
+    <meta name="description" content="Conoce la historia, demografía y atracciones turísticas de Río Negro, Uruguay.">
     
-    <meta property="og:title" content="Directorio de Miembros - Trade Face of Río Negro">
+    <!-- Metas para Redes Sociales (Open Graph) consistentes -->
+    <meta property="og:title" content="Descubre - Trade Face de Río Negro">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Explora el directorio completo de miembros de la Cámara de Comercio Trade Face of Río Negro. Encuentra negocios locales, información de contacto y sitios web.">
-    <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/directory.html"> 
+    <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/discover.html"> 
     <meta property="og:image" content="https://nestoredi.github.io/wdd231/chamber/images/logo.webp">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
     
+    <!-- NUEVO: Añadido larger.css para responsividad completa -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/larger.css">
     
@@ -25,7 +28,7 @@
 <body>
     <header>
         <a class="logo-container" href="index.html">
-            <img src="images/logo.webp" alt="Logo Trade Face of Río Negro" width="80" height="80">
+            <img src="images/logo.webp" alt="Logo de Trade Face of Río Negro" width="80" height="80">
             <div class="site-name">
                 <div class="title">Trade Face</div>
                 <div class="subtitle">of Río Negro</div>
@@ -35,8 +38,9 @@
             <button id="menu-button" aria-label="Toggle Navigation" aria-expanded="false">☰</button>
             <ul id="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="discover.html">Discover</a></li>
-                <li><a class="active" href="directory.html">Directory</a></li>
+                <!-- Wayfinding: La clase 'active' está en el enlace correcto -->
+                <li><a class="active" href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
                 <li><a href="join.html">Join</a></li>
             </ul>
         </nav>
@@ -45,33 +49,27 @@
         </div>
     </header>
 
-    <main class="directory-main">
-        <h1>Directorio de Miembros</h1>
-
-        <section>
-            <h2>Nuestros Miembros</h2>
-            <p>Explora la diversa red de empresas y organizaciones que forman parte de nuestra comunidad.</p>
-            <div class="view-toggle">
-                <button id="grid-view-btn" class="active">⏹️ Cuadrícula</button>
-                <button id="list-view-btn">📄 Lista</button>
-            </div>
+    <main class="discover-main">
+        <!-- CORRECCIÓN: Contenido principal en español -->
+        <h1>Descubre la Riqueza de Río Negro</h1>
+        
+        <section id="visit-message-card" class="card">
+            <h2>Tu Visita</h2>
+            <!-- CORRECCIÓN: Mensaje de carga en español -->
+            <p id="visit-message">Cargando información de tu visita...</p>
         </section>
 
-        <section id="directory-container" class="directory-grid">
-            <h2 class="visually-hidden">Lista de Empresas</h2>
-            <p>Cargando miembros...</p>
-        </section>
-
-        <section class="card">
-            <h2>¿Quieres aparecer aquí?</h2>
-            <p>Forma parte de nuestra creciente red de negocios. Descubre los beneficios y únete hoy.</p>
-            <a href="join.html" class="hero-action">Únete a la Cámara</a>
+        <!-- El contenido de esta sección se genera dinámicamente con main.js -->
+        <section id="places-of-interest-grid" class="discover-grid">
+            <h2 class="visually-hidden">Lugares de Interés</h2>
+            <!-- CORRECCIÓN: Mensaje de carga en español -->
+            <p>Cargando lugares de interés...</p>
         </section>
     </main>
 
     <footer>
         <div class="footer-info">
-            <img src="images/logo.webp" alt="Logo Pequeño" width="60" height="60">
+            <img src="images/logo.webp" alt="Logo de Trade Face of Río Negro" width="60" height="60">
             <div>
                 <p><strong>Trade Face of Río Negro</strong></p>
                 <p>18 de Julio 1234, Fray Bentos</p>
@@ -83,6 +81,7 @@
         </div>
         <div class="footer-meta">
             <p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p>
+            <!-- CORRECCIÓN: Consistencia en nombre y texto del proyecto -->
             <p><strong>Nestor Edison Crossa</strong></p>
             <p>Proyecto WDD 231</p>
             <p>Última Modificación: <span id="last-modified"></span></p>

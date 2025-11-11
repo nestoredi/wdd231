@@ -1,0 +1,53 @@
+
+{
+  "places": [
+    {
+      "name": "Frigorífico Anglo (UNESCO)",
+      "address": "Fray Bentos, Río Negro",
+      "description": "Historical industrial landscape, a UNESCO World Heritage site known as 'The Kitchen of the World'. Features the Museum of the Industrial Revolution.",
+      "image": "images/anglo.jpg"
+    },
+    {
+      "name": "UTEC - Universidad Tecnológica",
+      "address": "Barrio Anglo, Fray Bentos",
+      "description": "A modern technological university located within the Anglo site, offering degrees in Mechatronics, IT, and other technical fields.",
+      "image": "images/utec.jpg"
+    },
+    {
+      "name": "Balneario Las Cañas",
+      "address": "Las Cañas, Río Negro",
+      "description": "A popular beach resort on the Uruguay River, offering camping, cabins, and water activities, perfect for family tourism.",
+      "image": "images/playa.jpg"
+    },
+    {
+      "name": "Paso de las Piedras",
+      "address": "Ruta 24, km 30, Río Negro",
+      "description": "A tranquil natural area ideal for fishing, birdwatching, and enjoying the serene rural landscape of Río Negro.",
+      "image": "images/rionegro.webp"
+    },
+    {
+      "name": "Plaza Constitución",
+      "address": "Fray Bentos city center",
+      "description": "The main square of Fray Bentos, a vibrant meeting point surrounded by historical buildings and local shops, often hosts events.",
+      "image": "images/playa1.jpg"
+    },
+    {
+      "name": "Museo Solari",
+      "address": "19 de Abril 1133, Fray Bentos",
+      "description": "A museum dedicated to the renowned Uruguayan artist Luis Solari, showcasing his unique works and contributions to art.",
+      "image": "images/museo1.jpg"
+    },
+    {
+      "name": "Parque Roosevelt",
+      "address": "Mercedes, Soriano (nearby)",
+      "description": "Although in a neighboring department, this large park offers recreational facilities, green spaces, and a zoo, popular with Río Negro residents.",
+      "image": "images/puente.jpg"
+    },
+    {
+      "name": "Bodega Los Cerros de San Juan",
+      "address": "Colonia del Sacramento (nearby)",
+      "description": "A historic winery offering tours and tastings, representing Uruguay's rich winemaking tradition, a popular day trip from Río Negro.",
+      "image": "images/bodega.jpg"
+    }
+  ]
+}
