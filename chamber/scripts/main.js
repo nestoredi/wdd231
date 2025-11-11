@@ -112,14 +112,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const gridBtn = document.getElementById('grid-view-btn');
     const listBtn = document.getElementById('list-view-btn');
     const directoryContainer = document.getElementById('directory-container');
+
     if (gridBtn && listBtn && directoryContainer) {
         gridBtn.addEventListener('click', () => {
-            directoryContainer.className = 'directory-grid';
+            // CORRECCIÓN: Usar classList.replace() para cambiar de forma segura
+            if (directoryContainer.classList.contains('directory-list')) {
+                directoryContainer.classList.replace('directory-list', 'directory-grid');
+            }
             gridBtn.classList.add('active');
             listBtn.classList.remove('active');
         });
+
         listBtn.addEventListener('click', () => {
-            directoryContainer.className = 'directory-list';
+            // CORRECCIÓN: Usar classList.replace() para cambiar de forma segura
+            if (directoryContainer.classList.contains('directory-grid')) {
+                directoryContainer.classList.replace('directory-grid', 'directory-list');
+            }
             listBtn.classList.add('active');
             gridBtn.classList.remove('active');
         });

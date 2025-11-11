@@ -1,18 +1,19 @@
---- START OF FILE join.html ---
-
 <!DOCTYPE html>
-<html lang="en">
+<!-- CORRECCIÓN: Idioma cambiado a español -->
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Nestor Edi">
-    <title>Join the Chamber - Trade Face</title>
-    <meta name="description" content="Application form to join the Río Negro Chamber of Commerce. Learn about benefits and membership levels.">
+    <!-- CORRECCIÓN: Autor consistente con otros archivos -->
+    <meta name="author" content="Nestor Edison Crossa">
+    <title>Únete a la Cámara - Trade Face</title>
+    <!-- CORRECCIÓN: Descripción en español -->
+    <meta name="description" content="Formulario de solicitud para unirse a la Cámara de Comercio de Río Negro. Conoce los beneficios y niveles de membresía.">
     
-    <!-- Open Graph Metas for Social Media (if not already in main.css) -->
-    <meta property="og:title" content="Join - Trade Face of Río Negro">
+    <meta property="og:title" content="Únete - Trade Face de Río Negro">
     <meta property="og:type" content="website">
-      <meta property="og:description" content="Únete a la Cámara de Comercio de Río Negro. Descubre eventos, noticias y una red de empresas locales dedicadas a impulsar el crecimiento de nuestra comunidad.">
+    <!-- CORRECCIÓN: Descripción OG específica para esta página -->
+    <meta property="og:description" content="Forma parte de la red de negocios más influyente de Río Negro. Completa tu solicitud y comienza a disfrutar de los beneficios de ser miembro hoy mismo.">
     <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/join.html"> 
     <meta property="og:image" content="https://nestoredi.github.io/wdd231/chamber/images/logo.webp">
 
@@ -21,12 +22,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles/main.css">
+    <!-- NUEVO: Se añade el enlace a larger.css para la responsividad -->
+    <link rel="stylesheet" href="styles/larger.css">
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <header>
         <a class="logo-container" href="index.html">
-            <img src="images/logo.webp" alt="Trade Face of Río Negro Logo" width="80" height="80">
+            <img src="images/logo.webp" alt="Logo de Trade Face of Río Negro" width="80" height="80">
             <div class="site-name">
                 <div class="title">Trade Face</div>
                 <div class="subtitle">of Río Negro</div>
@@ -47,116 +50,112 @@
     </header>
 
     <main class="join-main">
-        <h1>Join the Chamber of Commerce</h1>
+        <h1>Únete a la Cámara de Comercio</h1>
         
         <section class="join-form-container card">
-            <h2>Application Form</h2>
+            <h2>Formulario de Solicitud</h2>
             <form action="thankyou.html" method="get">
-                <label for="fname">First Name*</label>
-                <input type="text" id="fname" name="fname" required title="Please enter your first name" autocomplete="given-name">
+                <label for="fname">Nombre*</label>
+                <input type="text" id="fname" name="fname" required title="Por favor, ingresa tu nombre" autocomplete="given-name">
 
-                <label for="lname">Last Name*</label>
-                <input type="text" id="lname" name="lname" required title="Please enter your last name" autocomplete="family-name">
+                <label for="lname">Apellido*</label>
+                <input type="text" id="lname" name="lname" required title="Por favor, ingresa tu apellido" autocomplete="family-name">
                 
-                <label for="position">Organizational Title*</label>
+                <label for="position">Cargo en la Organización*</label>
                 <input type="text" id="position" name="position" required 
                        pattern="[A-Za-z\s-]{7,}" 
-                       title="Must contain at least 7 characters (letters, spaces, or hyphens only)"
+                       title="Debe contener al menos 7 caracteres (solo letras, espacios o guiones)"
                        autocomplete="organization-title">
 
-                <label for="email">Email*</label>
+                <label for="email">Correo Electrónico*</label>
                 <input type="email" id="email" name="email" required 
-                       placeholder="example@domain.com" 
-                       title="Please enter a valid email address"
+                       placeholder="ejemplo@dominio.com" 
+                       title="Por favor, ingresa un correo electrónico válido"
                        autocomplete="email">
 
-                <label for="phone">Mobile Phone*</label> <!-- Changed to required as per PDF -->
+                <label for="phone">Teléfono Móvil*</label>
                 <input type="tel" id="phone" name="phone" required 
-                       placeholder="e.g., 123-456-7890" 
-                       title="Please enter your mobile phone number"
+                       placeholder="Ej: 099 123 456" 
+                       title="Por favor, ingresa tu número de teléfono"
                        autocomplete="tel">
 
-                <label for="business">Business/Organization Name*</label>
+                <label for="business">Nombre de la Empresa/Organización*</label>
                 <input type="text" id="business" name="business" required 
-                       title="Please enter your business or organization name"
+                       title="Por favor, ingresa el nombre de tu empresa u organización"
                        autocomplete="organization">
 
-                <label for="membership-level">Membership Level*</label>
-                <select id="membership-level" name="membership-level" required title="Select your desired membership level">
-                    <option value="" disabled selected>Select a level...</option>
-                    <option value="NP">NP Membership (Non-Profit)</option>
-                    <option value="Bronze">Bronze Membership</option>
-                    <option value="Silver">Silver Membership</option>
-                    <option value="Gold">Gold Membership</option>
+                <label for="membership-level">Nivel de Membresía*</label>
+                <select id="membership-level" name="membership-level" required title="Selecciona el nivel de membresía deseado">
+                    <option value="" disabled selected>Selecciona un nivel...</option>
+                    <option value="NP">Membresía NP (Sin Fines de Lucro)</option>
+                    <option value="Bronze">Membresía Bronce</option>
+                    <option value="Silver">Membresía Plata</option>
+                    <option value="Gold">Membresía Oro</option>
                 </select>
 
-                <label for="description">Business/Organization Description</label>
+                <label for="description">Descripción de la Empresa/Organización</label>
                 <textarea id="description" name="description" rows="4" 
-                          title="Provide a brief description of your business/organization"></textarea>
+                          title="Proporciona una breve descripción de tu empresa u organización"></textarea>
 
                 <input type="hidden" id="form-load-time" name="form-load-time">
 
-                <button type="submit">Send Application</button>
+                <button type="submit">Enviar Solicitud</button>
             </form>
         </section>
 
         <section class="membership-levels">
-            <h2>Membership Levels</h2>
-            <!-- NP Membership Card -->
+            <h2>Niveles de Membresía</h2>
             <div class="level-card" data-level="NP">
-                <h3>NP Membership (Non-Profit)</h3>
-                <p>Ideal for non-profit organizations.</p>
+                <h3>Membresía NP (Sin Fines de Lucro)</h3>
+                <p>Ideal para organizaciones sin fines de lucro.</p>
                 <ul>
-                    <li>Online directory listing.</li>
-                    <li>Access to networking events.</li>
+                    <li>Inclusión en el directorio online.</li>
+                    <li>Acceso a eventos de networking.</li>
                 </ul>
-                <button class="learn-more-btn">Learn More</button>
+                <button class="learn-more-btn">Saber Más</button>
             </div>
-            <!-- Bronze Membership Card (NEW) -->
             <div class="level-card" data-level="Bronze">
-                <h3>Bronze Membership</h3>
-                <p>For small businesses starting their journey.</p>
+                <h3>Membresía Bronce</h3>
+                <p>Para pequeñas empresas que inician su camino.</p>
                 <ul>
-                    <li>All NP benefits.</li>
-                    <li>Basic directory listing.</li>
-                    <li>Access to member-only resources.</li>
+                    <li>Todos los beneficios de NP.</li>
+                    <li>Listado básico en el directorio.</li>
+                    <li>Acceso a recursos exclusivos.</li>
                 </ul>
-                <button class="learn-more-btn">Learn More</button>
+                <button class="learn-more-btn">Saber Más</button>
             </div>
-            <!-- Silver Membership Card -->
             <div class="level-card" data-level="Silver">
-                <h3>Silver Membership</h3>
-                <p>For growing businesses seeking greater visibility.</p>
+                <h3>Membresía Plata</h3>
+                <p>Para empresas en crecimiento que buscan mayor visibilidad.</p>
                 <ul>
-                    <li>All Bronze benefits.</li>
-                    <li>Featured directory listing with logo.</li>
-                    <li>Discounts on events & workshops.</li>
+                    <li>Todos los beneficios de Bronce.</li>
+                    <li>Directorio destacado con logo.</li>
+                    <li>Descuentos en eventos y talleres.</li>
                 </ul>
-                <button class="learn-more-btn">Learn More</button>
+                <button class="learn-more-btn">Saber Más</button>
             </div>
-            <!-- Gold Membership Card -->
             <div class="level-card" data-level="Gold">
-                <h3>Gold Membership</h3>
-                <p>Maximum exposure and opportunities.</p>
+                <h3>Membresía Oro</h3>
+                <p>Máxima exposición y oportunidades.</p>
                 <ul>
-                    <li>All Silver benefits.</li>
-                    <li>"Business Spotlight" on homepage.</li>
-                    <li>Priority sponsorship opportunities.</li>
-                    <li>Exclusive training sessions.</li>
+                    <li>Todos los beneficios de Plata.</li>
+                    <li>"Empresa Destacada" en la portada.</li>
+                    <li>Oportunidades de patrocinio prioritarias.</li>
+                    <li>Sesiones de formación exclusivas.</li>
                 </ul>
-                <button class="learn-more-btn">Learn More</button>
+                <button class="learn-more-btn">Saber Más</button>
             </div>
         </section>
         
         <section class="card why-join-us">
-            <h2>Why Join Us?</h2>
-            <p>By joining the Chamber, you gain access to a network of contacts, development resources, visibility for your business, and a voice in the business community of Río Negro. Let's drive growth together!</p>
+            <h2>¿Por Qué Unirte?</h2>
+            <p>Al unirte a la Cámara, obtienes acceso a una red de contactos, recursos de desarrollo, visibilidad para tu negocio y una voz en la comunidad empresarial de Río Negro. ¡Impulsemos el crecimiento juntos!</p>
         </section>
     </main>
 
     <footer>
         <div class="footer-info">
-            <img src="images/logo.webp" alt="Trade Face of Río Negro Logo" width="60" height="60">
+            <img src="images/logo.webp" alt="Logo de Trade Face of Río Negro" width="60" height="60">
             <div>
                 <p><strong>Trade Face of Río Negro</strong></p>
                 <p>18 de Julio 1234, Fray Bentos</p>
@@ -168,71 +167,28 @@
         </div>
         <div class="footer-meta">
             <p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p>
-            <p><strong>Nestor Edi</strong></p>
-            <p>WDD 231 Project</p>
-            <p>Last Modified: <span id="last-modified"></span></p>
+            <p><strong>Nestor Edison Crossa</strong></p>
+            <!-- CORRECCIÓN: Texto consistente con otros archivos -->
+            <p>Proyecto WDD 231</p>
+            <p>Última Modificación: <span id="last-modified"></span></p>
         </div>
     </footer>
 
-    <!-- MODAL STRUCTURES (One for each membership level) -->
+    <!-- ESTRUCTURAS DE MODALES (Una para cada nivel) -->
     <div id="modal-np" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h3>NP Membership Benefits</h3>
-            <p>This membership is exclusively for non-profit organizations and comes with no fee.</p>
+            <h3>Beneficios Membresía NP</h3>
+            <p>Esta membresía es exclusiva para organizaciones sin fines de lucro y no tiene costo.</p>
             <ul>
-                <li><strong>Online Directory Listing:</strong> Your organization will be listed in our public online directory.</li>
-                <li><strong>Networking Events:</strong> Access to all Chamber-organized networking events and mixers.</li>
-                <li><strong>Advocacy:</strong> Your voice contributes to the Chamber's advocacy efforts for local community development.</li>
+                <li><strong>Listado en Directorio Online:</strong> Tu organización aparecerá en nuestro directorio público.</li>
+                <li><strong>Eventos de Networking:</strong> Acceso a todos los eventos y encuentros de networking organizados por la Cámara.</li>
+                <li><strong>Representación:</strong> Tu voz contribuye a los esfuerzos de la Cámara para el desarrollo de la comunidad local.</li>
             </ul>
         </div>
     </div>
-
     <div id="modal-bronze" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h3>Bronze Membership Benefits</h3>
-            <p>Designed for small and emerging businesses looking to establish their presence.</p>
-            <ul>
-                <li><strong>All NP Benefits:</strong> Includes directory listing and access to networking events.</li>
-                <li><strong>Basic Directory Listing:</strong> Enhanced listing with contact information.</li>
-                <li><strong>Member-Only Resources:</strong> Access to exclusive online business resources and guides.</li>
-                <li><strong>Chamber Newsletter:</strong> Receive our weekly newsletter with local business news and opportunities.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="modal-silver" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3>Silver Membership Benefits</h3>
-            <p>For growing businesses that desire more visibility and engagement.</p>
-            <ul>
-                <li><strong>All Bronze Benefits:</strong> Everything from the Bronze level.</li>
-                <li><strong>Featured Directory Listing:</strong> Prominent listing in the online directory, including your company logo.</li>
-                <li><strong>Event & Workshop Discounts:</strong> Significant discounts on Chamber-hosted events, workshops, and training sessions.</li>
-                <li><strong>Advertising Opportunities:</strong> Access to discounted advertising rates in Chamber publications.</li>
-                <li><strong>Mentorship Program:</strong> Opportunity to participate in our business mentorship program.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="modal-gold" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3>Gold Membership Benefits</h3>
-            <p>Our premium level, offering maximum exposure and leadership opportunities.</p>
-            <ul>
-                <li><strong>All Silver Benefits:</strong> Enjoy all benefits from the Silver level.</li>
-                <li><strong>Homepage Business Spotlight:</strong> Your business featured prominently on the Chamber's homepage.</li>
-                <li><strong>Priority Sponsorship:</strong> Exclusive access and priority for sponsoring major Chamber events.</li>
-                <li><strong>Executive Networking:</strong> Invitations to exclusive executive-level networking events.</li>
-                <li><strong>Committee Participation:</strong> Opportunity to serve on Chamber committees and influence local policy.</li>
-                <li><strong>Dedicated Support:</strong> Personalized support from Chamber staff for business development.</li>
-            </ul>
-        </div>
-    </div>
-
-    <script src="scripts/main.js" defer></script>
-</body>
-</html>
+            <h3>Beneficios Membresía Bronce</h3>
+            <p>Diseñada para pequeñas empresas y emprendimient
