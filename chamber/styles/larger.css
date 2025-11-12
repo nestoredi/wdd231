@@ -1,5 +1,3 @@
---- START OF FILE larger.css ---
-
 /* ---- RESPONSIVE DESIGN FOR LARGER SCREENS ---- */
 
 @media (min-width: 768px) {
@@ -36,6 +34,7 @@
 @media (max-width: 767px) {
     header {
         flex-direction: column;
+        position: relative;
     }
     
     nav {
@@ -59,10 +58,13 @@
         top: 1.5rem;
         right: 1.5rem;
         font-size: 2rem;
-        background: none;
+        background-color: var(--secondary-color);
+        color: #ffffff;
         border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
         cursor: pointer;
-        color: var(--accent-color);
+        font-weight: bold;
     }
     
     .hero-action {
