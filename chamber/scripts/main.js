@@ -191,34 +191,65 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     const getWeatherData = async () => {
-        const weatherAPIKey = 'YOUR_API_KEY'; // Reemplaza con tu clave
-        const lat = -33.1333, lon = -58.3;
+        const weatherAPIKey = '67ee60c3c34a6a70fce5339a14be7ed3'; // ¡TU CLAVE API REAL AQUÍ!
+        const lat = -33.1333, lon = -58.3; // Coordenadas de Fray Bentos, Río Negro
         const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${weatherAPIKey}`;
         const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${weatherAPIKey}`;
         
-        if (!document.getElementById('weather-card')) return; // Safeguard
+        const weatherCard = document.getElementById('weather-card');
+        const currentTempElement = document.getElementById('current-temp');
+        const currentDescElement = document.getElementById('current-description');
+        const forecastListElement = document.getElementById('forecast-list');
+
+        // Initial loading state
+        if (currentTempElement) currentTempElement.textContent = 'Cargando...';
+        if (currentDescElement) currentDescElement.textContent = '';
+        if (forecastListElement) forecastListElement.innerHTML = '<li>Cargando...</li>';
+
+        if (!weatherCard || !currentTempElement || !currentDescElement || !forecastListElement) {
+            console.warn('Weather elements not found on the page, skipping weather data fetch.');
+            return; // Exit if essential elements are missing
+        }
 
         try {
-            const [weatherResponse, forecastResponse] = await Promise.all([fetch(weatherUrl), fetch(forecastUrl)]);
+            const [weatherResponse, forecastResponse] = await Promise.all([
+                fetch(weatherUrl), 
+                fetch(forecastUrl)
+            ]);
+
             if (weatherResponse.ok && forecastResponse.ok) {
                 displayWeather(await weatherResponse.json(), await forecastResponse.json());
             } else {
-                throw new Error("Failed to fetch weather data");
+                // Log the exact status and text for debugging
+                const weatherError = await weatherResponse.text();
+                const forecastError = await forecastResponse.text();
+                console.error('Failed to fetch weather data:', weatherResponse.status, weatherError);
+                console.error('Failed to fetch forecast data:', forecastResponse.status, forecastError);
+                throw new Error(`Failed to fetch weather data: ${weatherResponse.status} / ${forecastResponse.status}`);
             }
         } catch (error) {
             console.error('Error fetching weather data:', error);
+            // Update UI to show error message
+            if (currentTempElement) currentTempElement.textContent = 'Error';
+            if (currentDescElement) currentDescElement.textContent = 'al cargar el clima.';
+            if (forecastListElement) forecastListElement.innerHTML = '<li>Error al cargar el pronóstico.</li>';
         }
     };
 
     const displaySpotlights = (members) => {
         const spotlightContainer = document.getElementById('spotlight-container');
         if (!spotlightContainer) return; // Safeguard
-        spotlightContainer.innerHTML = '';
+        spotlightContainer.innerHTML = ''; // Clear existing content
 
         const eligibleMembers = members.filter(m => m.membership_level === 'Gold' || m.membership_level === 'Silver');
         const shuffled = eligibleMembers.sort(() => 0.5 - Math.random());
         // Select 2 to 4 members
         const selected = shuffled.slice(0, Math.floor(Math.random() * 3) + 2); // Randomly select 2, 3, or 4
+
+        if (selected.length === 0) {
+            spotlightContainer.innerHTML = '<p>No hay empresas destacadas disponibles en este momento.</p>';
+            return;
+        }
 
         selected.forEach(member => {
             let card = document.createElement('div');
@@ -234,17 +265,23 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const getSpotlightData = async () => {
-        if (!document.getElementById('spotlight-container')) return; // Safeguard
+        const spotlightContainer = document.getElementById('spotlight-container');
+        if (!spotlightContainer) return; // Safeguard
+        spotlightContainer.innerHTML = '<p>Cargando empresas destacadas...</p>'; // Show loading message
+
         try {
             const response = await fetch(membersDataUrl);
             if (response.ok) {
                 const data = await response.json();
                 displaySpotlights(data.members);
             } else {
-                throw Error(await response.text());
+                const errorText = await response.text();
+                console.error('Error loading spotlight data:', response.status, errorText);
+                throw Error(errorText);
             }
         } catch (error) {
             console.error('Error loading spotlight data:', error);
+            spotlightContainer.innerHTML = '<p>Error al cargar las empresas destacadas. Por favor, inténtalo de nuevo más tarde.</p>';
         }
     };
 

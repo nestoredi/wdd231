@@ -46,12 +46,23 @@
         </section>
         <section class="home-grid">
             <div class="card events"><h3>Eventos</h3><p><strong>Próximo evento:</strong> Seminario de Innovación Agrícola.</p></div>
-            <div class="card weather"><h3>Clima Actual</h3><p>Cargando...</p></div>
-            <div class="card forecast"><h3>Pronóstico a 3 Días</h3><ul><li>Cargando...</li></ul></div>
+            <div class="card weather" id="weather-card">
+                <h3>Clima Actual</h3>
+                <p><span id="current-temp">Cargando...</span></p>
+                <p><span id="current-description"></span></p>
+            </div>
+            <div class="card forecast">
+                <h3>Pronóstico a 3 Días</h3>
+                <ul id="forecast-list">
+                    <li>Cargando...</li>
+                </ul>
+            </div>
         </section>
         <section class="spotlights">
             <h2>Empresas Destacadas</h2>
-            <div class="spotlight-container"><p>Cargando empresas...</p></div>
+            <div id="spotlight-container">
+                <!-- El contenido será cargado por JavaScript -->
+            </div>
         </section>
     </main>
     <footer>
