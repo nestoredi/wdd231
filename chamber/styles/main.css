@@ -138,8 +138,17 @@ footer a { color: var(--accent-color); }
 /* --- Directory Page --- */
 .directory-main { text-align: center; }
 .view-toggle { margin: 1rem 0; }
-.view-toggle button { padding: 0.5rem 1rem; border: 1px solid var(--secondary-color); background-color: #ffffff; cursor: pointer; font-size: 1rem; }
-.view-toggle button.active { background-color: var(--secondary-color); color: #ffffff; }
+.view-toggle button { 
+    padding: 0.5rem 1rem; 
+    border: 1px solid var(--secondary-color); 
+    background-color: var(--bg-color); 
+    cursor: pointer; 
+    font-size: 1rem; 
+}
+.view-toggle button.active { 
+    background-color: var(--secondary-color); 
+    color: #ffffff; 
+}
 .directory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 .directory-grid .member-card { text-align: center; }
 .directory-grid .member-card img { max-width: 150px; height: auto; margin: 0 auto 1rem; }
@@ -170,11 +179,16 @@ footer a { color: var(--accent-color); }
     font-size: 1rem;
     font-family: var(--body-font);
     background-color: #fff;
+    color: var(--text-color);
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 .join-form-container input:focus,
 .join-form-container select:focus,
-.join-form-container textarea:focus { outline: none; border-color: var(--secondary-color); box-shadow: 0 0 8px rgba(65, 90, 119, 0.4); }
+.join-form-container textarea:focus { 
+    outline: none; 
+    border-color: var(--secondary-color); 
+    box-shadow: 0 0 8px rgba(65, 90, 119, 0.4); 
+}
 .join-form-container button[type="submit"] {
     margin-top: 1.5rem;
     padding: 1rem 1.5rem;
@@ -190,35 +204,26 @@ footer a { color: var(--accent-color); }
 .join-form-container button[type="submit"]:hover { background-color: var(--secondary-color); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 
 .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); padding-top: 60px; }
-.modal-content { background-color: var(--card-bg-color); margin: 5% auto; padding: 2rem; border: 1px solid var(--border-color); width: 80%; max-width: 600px; border-radius: 8px; position: relative; }
-.close-button { color: #aaa; float: right; font-size: 28px; font-weight: bold; }
-.close-button:hover, .close-button:focus { color: #000; text-decoration: none; cursor: pointer; }
-
-
-/* ========================================= */
-/* --- ESTILOS GLOBALES --- */
-/* ========================================= */
-
-/* Dark Mode para componentes reutilizables */
-.view-toggle button { background-color: var(--bg-color); } /* Asumiendo que el botón debe tener el fondo de la página */
-.view-toggle button.active { background-color: var(--secondary-color); color: #fff; }
-
-/* Dark Mode para formulario y modales */
-.join-form-container input[type="text"],
-.join-form-container input[type="email"],
-.join-form-container input[type="tel"],
-.join-form-container select,
-.join-form-container textarea {
-    background-color: #fff;
+.modal-content { 
+    background-color: var(--card-bg-color); 
+    margin: 5% auto; 
+    padding: 2rem; 
+    border: 1px solid var(--border-color); 
+    width: 80%; 
+    max-width: 600px; 
+    border-radius: 8px; 
+    position: relative; 
     color: var(--text-color);
 }
-.join-form-container input:focus,
-.join-form-container select:focus,
-.join-form-container textarea:focus {
-    box-shadow: 0 0 8px rgba(65, 90, 119, 0.4);
+.close-button { 
+    color: #aaa; 
+    float: right; 
+    font-size: 28px; 
+    font-weight: bold; 
 }
-
-.modal-content { color: var(--text-color); }
-.close-button { color: #aaa; }
-.close-button:hover,
-.close-button:focus { color: #000; }
+.close-button:hover, 
+.close-button:focus { 
+    color: #000; 
+    text-decoration: none; 
+    cursor: pointer; 
+}
