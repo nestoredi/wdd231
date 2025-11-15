@@ -1,0 +1,123 @@
+/* General styles for a better presentation */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+h1 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #0056b3;
+}
+
+p {
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+code {
+    background-color: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.loader-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Space for the loader to be displayed */
+}
+
+/* --- COMMON STYLES FOR BOTH LOADERS --- */
+.loader-base {
+    position: relative; /* Needed to position the ::after pseudo-element */
+    width: 50px;       /* width of the loader */
+    height: 50px;      /* height of the loader */
+    border: 5px solid transparent; /* border width */
+    border-radius: 50%; /* make it round */
+    box-shadow: 0 0 1rem rgb(0 0 255 / 40%); /* blueish shadow effect */
+}
+
+/* --- 1. ANIMATION WITH @keyframes --- */
+#loader {
+    border-color: #999 transparent #999 transparent; /* border colors (2 transparent) */
+    animation: spin 1.5s linear infinite; /* spin animation with duration and continuous */
+}
+
+#loader::after {
+    content: '⚙️';
+    font-size: 1.8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* The initial transform is defined in the pulse animation */
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg); /* spin 360 degrees */
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1); /* scale to 1 */
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.25); /* scale to 1.25 */
+    }
+}
+
+/* --- 2. ANIMATION WITH transition (on hover) --- */
+.loader-t {
+    border-color: #007bff; /* A different color to distinguish it */
+    /* The property that will change (transform) and its duration */
+    transition: transform 1.5s linear;
+}
+
+.loader-t::after {
+    content: '⚙️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Initial state: invisible and small */
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 2rem;
+    /* The property that will change (transform) and its duration */
+    transition: transform 1.5s ease-in-out;
+}
+
+.loader-t:hover {
+    transform: rotate(360deg); /* Rotate on hover */
+}
+
+.loader-t:hover::after {
+    transform: translate(-50%, -50%) scale(1.5); /* Scale up on hover */
+}

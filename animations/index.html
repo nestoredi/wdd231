@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations Demo</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+    <h1>CSS Animations Demonstration</h1>
+
+    <div class="container">
+        <h2>1. Animation with <code>@keyframes</code></h2>
+        <p>This loader spins and pulses continuously. It uses the <code>animation</code> property, which links to <code>@keyframes</code> rules to define an animation sequence that repeats infinitely.</p>
+        <div class="loader-wrapper">
+            <div id="loader" class="loader-base"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>2. Animation with <code>transition</code></h2>
+        <p>This loader only animates when you hover your cursor over it. It uses the <code>transition</code> property to smoothly change from one state to another (e.g., to the <code>:hover</code> state).</p>
+        <div class="loader-wrapper">
+            <div class="loader-t loader-base"></div>
+        </div>
+    </div>
+
+</body>
+</html>
