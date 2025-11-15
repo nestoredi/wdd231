@@ -152,6 +152,13 @@ main {
     border-radius: 5px;
     text-align: center;
     font-weight: 700;
+    cursor: pointer; /* Add pointer to indicate it's clickable */
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .course-card.completed {
@@ -178,4 +185,30 @@ footer {
     color: var(--light-text-color);
     margin: 0 0.5rem;
     text-decoration: none;
+}
+
+/* --- MODAL STYLES ADDED HERE --- */
+dialog {
+    border: 1px solid rgb(0 0 0 / 10%);
+    border-radius: .25rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 0 3rem #777;
+    width: 90%;
+    max-width: 600px;
+}
+
+dialog::backdrop {
+    background-color: rgb(0 0 0 / 50%);
+}
+
+dialog button#closeModal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: .5rem;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
