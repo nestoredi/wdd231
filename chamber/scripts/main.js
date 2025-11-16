@@ -160,7 +160,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // --- Home Page Functionality (Weather and Spotlights) ---
-    const isHomePage = document.querySelector('main h1') && document.querySelector('main h1').textContent.includes('Cámara de Comercio');
+    // Mejorar la detección de la página de inicio
+    const isHomePage = document.querySelector('body.home') || (document.querySelector('main h1') && document.querySelector('main h1').textContent.includes('Cámara de Comercio'));
 
     const displayWeather = (weatherData, forecastData) => {
         const currentTempElement = document.getElementById('current-temp');

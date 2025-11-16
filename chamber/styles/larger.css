@@ -20,10 +20,10 @@
     }
     
     .join-main {
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 2fr 1fr; /* Formulario 2/3, Niveles 1/3 */
         grid-template-areas:
             "form levels"
-            "why-join levels";
+            "why-join levels"; /* Los niveles ocupan dos filas */
     }
 
     .join-form-container { grid-area: form; }
