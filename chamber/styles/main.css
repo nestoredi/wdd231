@@ -2,17 +2,25 @@
 /* --- VARIABLES GLOBALES Y ESTILOS BASE --- */
 /* ========================================= */
 :root {
-    /* Paleta de Colores */
-    --primary-color: #0d1b2a;
-    --secondary-color: #415a77;
-    --accent-color: #f0f0f0;
-    --text-color: #333;
-    --bg-color: #ffffff;
-    --card-bg-color: #f8f9fa;
-    --header-bg: #686363;
-    --border-color: #ddd;
+    /* 
+      Paleta de Colores Accesible y Renovada 
+      - Header/Footer en Celeste con texto de alto contraste.
+      - Botones y acciones con un azul intenso que contrasta bien con texto blanco.
+      - Texto principal muy oscuro para máxima legibilidad sobre fondos claros.
+    */
+    --header-footer-bg: #A9D6E5; /* Celeste claro para header y footer */
+    --header-footer-text: #0d1b2a; /* Azul muy oscuro para texto sobre celeste (Contraste 11.23:1) */
+    
+    --primary-color: #0d1b2a;      /* Azul oscuro para títulos principales */
+    --secondary-color: #014F86;   /* Azul de acción para botones y enlaces (Contraste 6.55:1 con blanco) */
+    
+    --text-color: #212529;         /* Gris muy oscuro para el cuerpo del texto (casi negro) */
+    --bg-color: #ffffff;           /* Fondo principal blanco */
+    --card-bg-color: #f8f9fa;      /* Fondo de tarjetas ligeramente gris */
+    --border-color: #dee2e6;       /* Borde suave y visible */
+    
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --shadow-strong-color: rgba(0, 0, 0, 0.5);
+    --shadow-strong-color: rgba(0, 0, 0, 0.25);
 
     /* Tipografía */
     --heading-font: 'Poppins', sans-serif;
@@ -84,15 +92,15 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: var(--header-bg);
-    color: var(--accent-color);
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
 }
 .logo-container { display: flex; align-items: center; text-decoration: none; color: inherit; }
 .logo-container img { margin-right: 1rem; }
 .site-name .title { font-size: 1.8rem; font-weight: 600; }
 .site-name .subtitle { font-size: 1rem; }
 nav ul { list-style: none; display: flex; margin: 0; padding: 0; gap: 0.5rem; }
-nav a { text-decoration: none; color: var(--accent-color); padding: 0.5rem 1rem; font-weight: bold; border-radius: 5px; transition: background-color 0.3s, color 0.3s; }
+nav a { text-decoration: none; color: var(--header-footer-text); padding: 0.5rem 1rem; font-weight: bold; border-radius: 5px; transition: background-color 0.3s, color 0.3s; }
 nav a:hover, nav a.active { background-color: var(--secondary-color); color: #ffffff; }
 #menu-button { 
     display: none; 
@@ -111,12 +119,12 @@ footer {
     gap: 1rem;
     text-align: center;
     padding: 1rem;
-    background-color: var(--header-bg);
+    background-color: var(--header-footer-bg);
     margin-top: 2rem;
     font-size: 0.9rem;
-    color: var(--accent-color);
+    color: var(--header-footer-text);
 }
-footer a { color: var(--accent-color); }
+footer a { color: var(--header-footer-text); }
 .footer-info { display: flex; align-items: center; justify-content: center; }
 .footer-info img { margin-right: 10px; }
 .footer-info div { text-align: left; }
