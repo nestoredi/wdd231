@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Nestor Edison Crossa">
-    <!-- CORRECCIÓN: Título de página ajustado -->
-    <title>Únete a la Cámara | Trade Face de Río Negro</title>
-    <!-- CORRECCIÓN: Descripción en español -->
+    <!-- CORRECCIÓN: "Join the" en lugar de "Join to the" -->
+    <title>Join the Trade Face de Río Negro</title>
     <meta name="description" content="Formulario de solicitud para unirse a la Cámara de Comercio de Río Negro. Conoce los beneficios y niveles de membresía para tu empresa.">
     
-    <!-- CORRECCIÓN: og:title ajustado -->
     <meta property="og:title" content="Únete a la Cámara de Comercio de Río Negro">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Forma parte de la red de negocios más influyente de Río Negro. Completa tu solicitud y comienza a disfrutar de los beneficios de ser miembro hoy mismo.">
+    <meta property="og:description" content="Forma parte de la red de negocios más influyente de Río Negro.">
     <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/join.html"> 
     <meta property="og:image" content="https://nestoredi.github.io/wdd231/chamber/images/logo.webp">
 
@@ -42,11 +40,9 @@
                 <li><a class="active" href="join.html">Join</a></li>
             </ul>
         </nav>
-        
     </header>
 
     <main class="join-main">
-        <!-- CORRECCIÓN: Contenido del h1 ajustado para coincidir con el título -->
         <h1>Únete a la Cámara de Comercio</h1>
         
         <section class="join-form-container card">
@@ -84,7 +80,6 @@
                 <label for="membership-level">Nivel de Membresía*</label>
                 <select id="membership-level" name="membership-level" required title="Selecciona el nivel de membresía deseado">
                     <option value="" disabled selected>Selecciona un nivel...</option>
-                    <!-- CORRECCIÓN: Values de las opciones en minúscula para validación -->
                     <option value="np">Membresía NP (Sin Fines de Lucro)</option>
                     <option value="bronze">Membresía Bronce</option>
                     <option value="silver">Membresía Plata</option>
@@ -95,6 +90,7 @@
                 <textarea id="description" name="description" rows="4" 
                           title="Proporciona una breve descripción de tu empresa u organización"></textarea>
 
+                <!-- ESTE ES EL INPUT CLAVE QUE DEBE LLENARSE -->
                 <input type="hidden" id="form-load-time" name="form-load-time">
 
                 <button type="submit">Enviar Solicitud</button>
@@ -173,6 +169,7 @@
         </div>
     </footer>
 
+    <!-- Modales se mantienen igual... -->
     <div id="modal-np" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
