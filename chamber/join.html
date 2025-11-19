@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<!-- CORRECCIÓN: Idioma cambiado a español -->
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CORRECCIÓN: Autor consistente con otros archivos -->
     <meta name="author" content="Nestor Edison Crossa">
-    <title>Únete a la Cámara - Trade Face</title>
+    <!-- CORRECCIÓN: Título de página ajustado -->
+    <title>Únete a la Cámara | Trade Face de Río Negro</title>
     <!-- CORRECCIÓN: Descripción en español -->
-    <meta name="description" content="Formulario de solicitud para unirse a la Cámara de Comercio de Río Negro. Conoce los beneficios y niveles de membresía.">
+    <meta name="description" content="Formulario de solicitud para unirse a la Cámara de Comercio de Río Negro. Conoce los beneficios y niveles de membresía para tu empresa.">
     
-    <meta property="og:title" content="Únete - Trade Face de Río Negro">
+    <!-- CORRECCIÓN: og:title ajustado -->
+    <meta property="og:title" content="Únete a la Cámara de Comercio de Río Negro">
     <meta property="og:type" content="website">
-    <!-- CORRECCIÓN: Descripción OG específica para esta página -->
     <meta property="og:description" content="Forma parte de la red de negocios más influyente de Río Negro. Completa tu solicitud y comienza a disfrutar de los beneficios de ser miembro hoy mismo.">
     <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/join.html"> 
     <meta property="og:image" content="https://nestoredi.github.io/wdd231/chamber/images/logo.webp">
@@ -22,7 +21,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles/main.css">
-    <!-- NUEVO: Se añade el enlace a larger.css para la responsividad -->
     <link rel="stylesheet" href="styles/larger.css">
     <link rel="icon" href="favicon.ico">
 </head>
@@ -48,6 +46,7 @@
     </header>
 
     <main class="join-main">
+        <!-- CORRECCIÓN: Contenido del h1 ajustado para coincidir con el título -->
         <h1>Únete a la Cámara de Comercio</h1>
         
         <section class="join-form-container card">
@@ -85,10 +84,11 @@
                 <label for="membership-level">Nivel de Membresía*</label>
                 <select id="membership-level" name="membership-level" required title="Selecciona el nivel de membresía deseado">
                     <option value="" disabled selected>Selecciona un nivel...</option>
-                    <option value="NP">Membresía NP (Sin Fines de Lucro)</option>
-                    <option value="Bronze">Membresía Bronce</option>
-                    <option value="Silver">Membresía Plata</option>
-                    <option value="Gold">Membresía Oro</option>
+                    <!-- CORRECCIÓN: Values de las opciones en minúscula para validación -->
+                    <option value="np">Membresía NP (Sin Fines de Lucro)</option>
+                    <option value="bronze">Membresía Bronce</option>
+                    <option value="silver">Membresía Plata</option>
+                    <option value="gold">Membresía Oro</option>
                 </select>
 
                 <label for="description">Descripción de la Empresa/Organización</label>
@@ -129,6 +129,7 @@
                     <li>Todos los beneficios de Bronce.</li>
                     <li>Directorio destacado con logo.</li>
                     <li>Descuentos en eventos y talleres.</li>
+                    <li>Oportunidades de co-marketing.</li>
                 </ul>
                 <button class="learn-more-btn">Saber Más</button>
             </div>
@@ -140,6 +141,7 @@
                     <li>"Empresa Destacada" en la portada.</li>
                     <li>Oportunidades de patrocinio prioritarias.</li>
                     <li>Sesiones de formación exclusivas.</li>
+                    <li>Participación en comité directivo.</li>
                 </ul>
                 <button class="learn-more-btn">Saber Más</button>
             </div>
@@ -166,13 +168,11 @@
         <div class="footer-meta">
             <p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p>
             <p><strong>Nestor Edison Crossa</strong></p>
-            <!-- CORRECCIÓN: Texto consistente con otros archivos -->
             <p>Proyecto WDD 231</p>
             <p>Última Modificación: <span id="last-modified"></span></p>
         </div>
     </footer>
 
-    <!-- ESTRUCTURAS DE MODALES (Una para cada nivel) -->
     <div id="modal-np" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
@@ -225,6 +225,6 @@
             </ul>
         </div>
     </div>
-    <script src="scripts/main.js" defer></script> <!-- MOVIDO AL FINAL DEL BODY Y AÑADIDO DEFER -->
+    <script src="scripts/main.js" defer></script>
 </body>
 </html>

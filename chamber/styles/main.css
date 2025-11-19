@@ -8,16 +8,16 @@
       - Botones y acciones con un azul intenso que contrasta bien con texto blanco.
       - Texto principal muy oscuro para máxima legibilidad sobre fondos claros.
     */
-    --header-footer-bg: #A9D6E5; /* Celeste claro para header y footer */
-    --header-footer-text: #0d1b2a; /* Azul muy oscuro para texto sobre celeste (Contraste 11.23:1) */
+    --header-footer-bg: #A9D6E5;    /* Celeste claro para header y footer (Contraste 11.13:1 con #0d1b2a) */
+    --header-footer-text: #0d1b2a;  /* Azul muy oscuro para texto sobre celeste */
     
-    --primary-color: #0d1b2a;      /* Azul oscuro para títulos principales */
-    --secondary-color: #014F86;   /* Azul de acción para botones y enlaces (Contraste 6.55:1 con blanco) */
+    --primary-color: #0d1b2a;       /* Azul oscuro para títulos principales y botones de envío */
+    --secondary-color: #014F86;     /* Azul de acción para botones y enlaces (Contraste 6.55:1 con blanco) */
     
-    --text-color: #212529;         /* Gris muy oscuro para el cuerpo del texto (casi negro) */
+    --text-color: #212529;          /* Gris muy oscuro para el cuerpo del texto (casi negro) */
     --bg-color: #ffffff;           /* Fondo principal blanco */
-    --card-bg-color: #f8f9fa;      /* Fondo de tarjetas ligeramente gris */
-    --border-color: #dee2e6;       /* Borde suave y visible */
+    --card-bg-color: #f8f9fa;       /* Fondo de tarjetas ligeramente gris */
+    --border-color: #dee2e6;        /* Borde suave y visible */
     
     --shadow-color: rgba(0, 0, 0, 0.1);
     --shadow-strong-color: rgba(0, 0, 0, 0.25);
@@ -92,8 +92,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: var(--header-footer-bg);
-    color: var(--header-footer-text);
+    background-color: var(--header-footer-bg); /* Nuevo color de header/footer */
+    color: var(--header-footer-text); /* Nuevo color de texto de header/footer */
 }
 .logo-container { display: flex; align-items: center; text-decoration: none; color: inherit; }
 .logo-container img { margin-right: 1rem; }
@@ -119,10 +119,10 @@ footer {
     gap: 1rem;
     text-align: center;
     padding: 1rem;
-    background-color: var(--header-footer-bg);
+    background-color: var(--header-footer-bg); /* Nuevo color de header/footer */
     margin-top: 2rem;
     font-size: 0.9rem;
-    color: var(--header-footer-text);
+    color: var(--header-footer-text); /* Nuevo color de texto de header/footer */
 }
 footer a { color: var(--header-footer-text); }
 .footer-info { display: flex; align-items: center; justify-content: center; }
@@ -245,7 +245,7 @@ footer a { color: var(--header-footer-text); }
 .join-form-container textarea:focus { 
     outline: none; 
     border-color: var(--secondary-color); 
-    box-shadow: 0 0 8px rgba(65, 90, 119, 0.4); 
+    box-shadow: 0 0 8px rgba(1, 79, 134, 0.4); /* Sombra con secondary_color */
 }
 .join-form-container button[type="submit"] {
     margin-top: 1.5rem;
@@ -271,17 +271,17 @@ footer a { color: var(--header-footer-text); }
     max-width: 600px; 
     border-radius: 8px; 
     position: relative; 
-    color: var(--text-color);
+    color: var(--text-color); /* Asegura que el texto del modal contrasta con el fondo de la tarjeta */
 }
 .close-button { 
-    color: #aaa; 
+    color: var(--text-color); /* CORRECCIÓN: Contraste de color mejorado */
     float: right; 
     font-size: 28px; 
     font-weight: bold; 
 }
 .close-button:hover, 
 .close-button:focus { 
-    color: #000; 
+    color: var(--primary-color); /* Color más oscuro al interactuar */
     text-decoration: none; 
     cursor: pointer; 
 }
