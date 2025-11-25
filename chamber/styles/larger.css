@@ -29,6 +29,14 @@
     .join-form-container { grid-area: form; }
     .membership-levels { grid-area: levels; }
     .why-join-us { grid-area: why-join; }
+    
+     /* --- DISCOVER PAGE HOVER EFFECTS --- */
+    /* Requisito de rúbrica: Efecto imagen solo en vistas grandes */
+    .place-card:hover img {
+        transform: scale(1.05);
+        filter: brightness(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
 }
 
 @media (max-width: 767px) {
