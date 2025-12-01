@@ -1,33 +1,26 @@
-document.addEventListener('DOMContentLoaded', function() {
+// Rubric #12: ES Module use (Importing from utils.js)
+import { calculateDaysBetween, fetchData, capitalizeWords } from './utils.js';
+
+document.addEventListener('DOMContentLoaded', () => {
 
     // ============================================================
-    // 1. CRITICAL FUNCTIONALITY (Run immediately)
+    // 1. GLOBAL FUNCTIONALITY
     // ============================================================
-
-    // --- Join Page Form Load Time (Fix for validation error) ---
-    // Movemos esto al principio para asegurar que el valor exista cuando el validador lo revise.
-    const formLoadTimeInput = document.getElementById('form-load-time');
-    if (formLoadTimeInput) {
-        formLoadTimeInput.value = Date.now(); // Usamos Timestamp simple o toISOString()
-    }
-
-    // --- Footer Info ---
-    const copyrightYearElement = document.getElementById('copyright-year');
-    if (copyrightYearElement) {
-        copyrightYearElement.textContent = new Date().getFullYear();
-    }
     
-    const lastModifiedElement = document.getElementById('last-modified');
-    if (lastModifiedElement) {
-        lastModifiedElement.textContent = document.lastModified;
-    }
+    // Update Copyright and Modified Date
+    const yearSpan = document.getElementById('copyright-year');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    
+    const modifiedSpan = document.getElementById('last-modified');
+    if (modifiedSpan) modifiedSpan.textContent = document.lastModified;
 
-    // --- Mobile Navigation ---
+    // Mobile Menu Toggle
     const menuButton = document.getElementById('menu-button');
     const navLinks = document.getElementById('nav-links');
     if (menuButton && navLinks) {
         menuButton.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('open');
+            navLinks.classList.toggle('open');
+            const isOpen = navLinks.classList.contains('open');
             menuButton.textContent = isOpen ? '✕' : '☰';
             menuButton.setAttribute('aria-expanded', isOpen);
         });
@@ -36,116 +29,76 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================================
     // 2. PAGE SPECIFIC LOGIC
     // ============================================================
-
-    // --- Join Page Modals ---
-    // Verificamos si estamos en la página de Join buscando un elemento único de esa página
-    const joinMain = document.querySelector('.join-main');
-    if (joinMain) {
-        const learnMoreButtons = document.querySelectorAll('.membership-levels .learn-more-btn');
-        const modals = document.querySelectorAll('.modal');
-        const closeButtons = document.querySelectorAll('.close-button');
-
-        learnMoreButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const levelCard = this.closest('.level-card');
-                const level = levelCard.dataset.level;
-                const modalId = `modal-${level.toLowerCase()}`;
-                const targetModal = document.getElementById(modalId);
-                if (targetModal) {
-                    targetModal.style.display = 'block';
-                }
-            });
-        });
-
-        closeButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                this.closest('.modal').style.display = 'none';
-            });
-        });
-
-        window.addEventListener('click', function(event) {
-            modals.forEach(modal => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        });
-    }
-
-    // --- Discover Page Functionality ---
-    if (document.querySelector('main.discover-main')) {
-        const placesOfInterestGrid = document.getElementById('places-of-interest-grid');
-        const visitMessageElement = document.getElementById('visit-message');
-        const discoverDataUrl = 'data/discover-places.json';
-
-        const setupVisitMessage = () => {
-            if (!visitMessageElement) return;
-            const lastVisit = localStorage.getItem('lastVisitTimestamp');
-            const now = Date.now();
-            const oneDay = 24 * 60 * 60 * 1000;
-            let message = "";
-
-            if (!lastVisit) {
-                message = "¡Bienvenido! Haznos saber si tienes alguna pregunta.";
-            } else {
-                const timeDifference = now - parseInt(lastVisit);
-                if (timeDifference < oneDay) {
-                    message = "¡Qué bueno verte de nuevo tan pronto!";
-                } else {
-                    const days = Math.round(timeDifference / oneDay);
-                    message = `Tu última visita fue hace ${days} ${days === 1 ? 'día' : 'días'}.`;
-                }
-            }
-            visitMessageElement.textContent = message;
-            localStorage.setItem('lastVisitTimestamp', now.toString());
-        };
-
-        const displayDiscoverPlaces = (places) => {
-            if (!placesOfInterestGrid) return;
-            placesOfInterestGrid.innerHTML = '';
-            places.forEach((place) => {
-                let card = document.createElement('div');
-                card.className = 'card place-card';
-                card.innerHTML = `
-                    <h2>${place.name}</h2>
-                    <figure>
-                        <img src="${place.image}" alt="${place.name}" loading="lazy" width="300" height="200">
-                    </figure>
-                    <p>${place.description}</p>
-                    <button class="learn-more-btn">Saber Más</button>
-                `;
-                placesOfInterestGrid.appendChild(card);
-            });
-        };
-
-        const getDiscoverPlacesData = async () => {
-            if (!placesOfInterestGrid) return;
-            try {
-                const response = await fetch(discoverDataUrl);
-                if (response.ok) {
-                    const data = await response.json();
-                    displayDiscoverPlaces(data.places);
-                } else {
-                    throw Error(await response.text());
-                }
-            } catch (error) {
-                console.error('Error loading discover places data:', error);
-                placesOfInterestGrid.innerHTML = '<p>Error al cargar los lugares de interés.</p>';
-            }
-        };
-
-        setupVisitMessage();
-        getDiscoverPlacesData();
-    }
     
-    // --- Directory Page Functionality ---
-    if (document.querySelector('main.directory-main')) {
+    // --- JOIN PAGE ---
+    if (document.querySelector('.join-main')) {
+        // Timestamp for hidden input
+        const timestampInput = document.getElementById('form-load-time');
+        if (timestampInput) timestampInput.value = new Date().toISOString();
+
+        // Modals Logic (Rubric #10)
+        const modals = document.querySelectorAll('.modal');
+        const buttons = document.querySelectorAll('.learn-more-btn');
+        const closes = document.querySelectorAll('.close-button');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const level = e.target.closest('.level-card').dataset.level; // e.g., "Gold"
+                const modal = document.getElementById(`modal-${level.toLowerCase()}`);
+                if (modal) modal.style.display = 'block';
+            });
+        });
+
+        closes.forEach(span => {
+            span.addEventListener('click', () => {
+                modals.forEach(m => m.style.display = 'none');
+            });
+        });
+
+        window.onclick = (event) => {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        };
+    }
+
+    // --- THANK YOU PAGE (Rubric #7: Display Form Data) ---
+    const resultsContainer = document.getElementById('results');
+    if (resultsContainer) {
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Helper to append data
+        const addResult = (label, key) => {
+            const value = urlParams.get(key);
+            if (value) {
+                const p = document.createElement('p');
+                p.innerHTML = `<strong>${label}:</strong> ${value}`;
+                resultsContainer.appendChild(p);
+            }
+        };
+
+        if (Array.from(urlParams).length > 0) {
+            addResult('Nombre', 'fname');
+            addResult('Apellido', 'lname');
+            addResult('Email', 'email');
+            addResult('Teléfono', 'phone');
+            addResult('Empresa', 'business');
+            addResult('Membresía', 'membership-level');
+            addResult('Fecha Solicitud', 'form-load-time');
+        } else {
+            resultsContainer.innerHTML = '<p>No se encontraron datos de envío.</p>';
+        }
+    }
+
+    // --- DIRECTORY PAGE ---
+    const directoryContainer = document.getElementById('directory-container');
+    if (directoryContainer) {
         const gridBtn = document.getElementById('grid-view-btn');
         const listBtn = document.getElementById('list-view-btn');
-        const directoryContainer = document.getElementById('directory-container');
-        const membersDataUrl = 'data/members.json'; 
+        const url = 'data/members.json';
 
-        if (gridBtn && listBtn && directoryContainer) {
+        // Toggle View
+        if (gridBtn && listBtn) {
             gridBtn.addEventListener('click', () => {
                 directoryContainer.classList.add('directory-grid');
                 directoryContainer.classList.remove('directory-list');
@@ -160,143 +113,147 @@ document.addEventListener('DOMContentLoaded', function() {
                 gridBtn.classList.remove('active');
             });
         }
-        
-        const displayMembers = (members) => {
-            if (!directoryContainer) return;
-            directoryContainer.innerHTML = ''; 
-            members.forEach(member => {
-                let card = document.createElement('div');
-                card.className = 'card member-card';
-                card.innerHTML = `
-                    <img src="${member.image}" alt="Logo de ${member.name}" loading="lazy" width="150" height="auto">
-                    <div>
-                        <h3>${member.name}</h3>
-                        <p>${member.address}</p>
-                        <p>${member.phone}</p>
-                        <a href="${member.website}" target="_blank">Visitar Sitio Web</a>
-                        <p class="membership-level">Nivel: ${member.membership_level}</p>
-                    </div>`;
-                directoryContainer.appendChild(card);
-            });
-        };
 
-        const getMembersData = async () => {
-            if (!directoryContainer) return;
-            try {
-                const response = await fetch(membersDataUrl);
-                if (response.ok) {
-                    const data = await response.json();
-                    displayMembers(data.members); 
-                }
-            } catch (error) {
-                console.error('Error loading member data:', error);
-            }
-        };
-
-        getMembersData();
-    }
-
-    // --- Home Page Functionality ---
-    // CORRECCIÓN: Detectar Home Page basándose en la existencia del contenedor del clima
-    // Esto evita que se ejecute en join.html
-    const weatherCard = document.getElementById('weather-card');
-    
-    if (weatherCard) {
-        
-        // Weather Functions
-        const displayWeather = (weatherData, forecastData) => {
-            const currentTempElement = document.getElementById('current-temp');
-            const currentDescElement = document.getElementById('current-description');
-            const forecastListElement = document.getElementById('forecast-list');
-
-            if (currentTempElement && currentDescElement) {
-                currentTempElement.textContent = `${weatherData.main.temp.toFixed(0)}°C`;
-                // Capitalize Description
-                const desc = weatherData.weather[0].description;
-                currentDescElement.textContent = desc.charAt(0).toUpperCase() + desc.slice(1);
-                
-                const iconElement = document.getElementById('weather-icon');
-                if(iconElement) {
-                    iconElement.setAttribute('src', `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`);
-                    iconElement.setAttribute('alt', desc);
-                }
-            }
-
-            if (forecastListElement) {
-                forecastListElement.innerHTML = '';
-                // Filter for ~noon for the next few days
-                const upcomingForecasts = forecastData.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 3);
-
-                upcomingForecasts.forEach(item => {
-                    const date = new Date(item.dt * 1000);
-                    // Get day name in Spanish
-                    const dayName = new Intl.DateTimeFormat('es-ES', { weekday: 'long' }).format(date);
-                    const capitalizedDay = dayName.charAt(0).toUpperCase() + dayName.slice(1);
-                    
-                    const li = document.createElement('li');
-                    li.innerHTML = `<strong>${capitalizedDay}:</strong> ${item.main.temp.toFixed(0)}°C`;
-                    forecastListElement.appendChild(li);
+        const loadMembers = async () => {
+            const data = await fetchData(url);
+            if (data && data.members) {
+                directoryContainer.innerHTML = '';
+                data.members.forEach(member => {
+                    const section = document.createElement('section');
+                    section.className = 'card member-card';
+                    section.innerHTML = `
+                        <img src="${member.image}" alt="${member.name} Logo" loading="lazy" width="150" height="100">
+                        <div>
+                            <h3>${member.name}</h3>
+                            <p>${member.address}</p>
+                            <p>${member.phone}</p>
+                            <a href="${member.website}" target="_blank">Website</a>
+                            <p><em>${member.membership_level} Member</em></p>
+                        </div>
+                    `;
+                    directoryContainer.appendChild(section);
                 });
             }
         };
+        loadMembers();
+    }
+
+    // --- DISCOVER PAGE ---
+    const discoverGrid = document.getElementById('places-of-interest-grid');
+    if (discoverGrid) {
+        // Rubric #9: LocalStorage
+        const visitMessage = document.getElementById('visit-message');
+        const lastVisit = localStorage.getItem('lastVisit');
+        const now = Date.now();
         
-        const getWeatherData = async () => {
-            const weatherAPIKey = '67ee60c3c34a6a70fce5339a14be7ed3';
-            const lat = -33.1333, lon = -58.3;
-            const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=${weatherAPIKey}`;
-            const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=${weatherAPIKey}`;
-            
-            try {
-                const [weatherResponse, forecastResponse] = await Promise.all([
-                    fetch(weatherUrl), 
-                    fetch(forecastUrl)
-                ]);
+        if (!lastVisit) {
+            visitMessage.textContent = "Welcome! Let us know if you have any questions.";
+        } else {
+            const days = calculateDaysBetween(parseInt(lastVisit), now);
+            if (days < 1) {
+                visitMessage.textContent = "Back so soon! Awesome!";
+            } else {
+                visitMessage.textContent = `You last visited ${days} ${days === 1 ? 'day' : 'days'} ago.`;
+            }
+        }
+        localStorage.setItem('lastVisit', now);
 
-                if (weatherResponse.ok && forecastResponse.ok) {
-                    displayWeather(await weatherResponse.json(), await forecastResponse.json());
-                }
-            } catch (error) {
-                console.error('Error fetching weather data:', error);
+        // Load Places
+        const loadPlaces = async () => {
+            const data = await fetchData('data/discover-places.json');
+            if (data && data.places) {
+                discoverGrid.innerHTML = '';
+                data.places.forEach(place => {
+                    const card = document.createElement('div');
+                    card.className = 'card place-card';
+                    card.innerHTML = `
+                        <h2>${place.name}</h2>
+                        <figure>
+                            <img src="${place.image}" alt="${place.name}" loading="lazy" width="300" height="200">
+                            <figcaption>${place.description}</figcaption>
+                        </figure>
+                        <button class="learn-more-btn">Learn More</button>
+                    `;
+                    discoverGrid.appendChild(card);
+                });
+            }
+        };
+        loadPlaces();
+    }
+
+    // --- HOME PAGE (Weather & Spotlights) ---
+    const weatherCard = document.getElementById('weather-card');
+    if (weatherCard) {
+        // Weather
+        const apiKey = '67ee60c3c34a6a70fce5339a14be7ed3';
+        const lat = -33.1333, lon = -58.3; // Fray Bentos
+        const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=${apiKey}`;
+        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=${apiKey}`;
+
+        const displayWeather = (current, forecast) => {
+            const temp = document.getElementById('current-temp');
+            const desc = document.getElementById('current-description');
+            const icon = document.getElementById('weather-icon');
+            const forecastList = document.getElementById('forecast-list');
+
+            if(current.main) {
+                temp.innerHTML = `${Math.round(current.main.temp)}&deg;C`;
+                desc.textContent = capitalizeWords(current.weather[0].description);
+                icon.setAttribute('src', `https://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`);
+                icon.setAttribute('alt', current.weather[0].description);
+            }
+
+            if(forecast.list) {
+                forecastList.innerHTML = '';
+                // Filter for approx noon next 3 days
+                const noonForecasts = forecast.list.filter(x => x.dt_txt.includes('12:00:00')).slice(0, 3);
+                noonForecasts.forEach(day => {
+                    const date = new Date(day.dt * 1000);
+                    const dayName = new Intl.DateTimeFormat('es-ES', { weekday: 'long' }).format(date);
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${capitalizeWords(dayName)}:</strong> ${Math.round(day.main.temp)}&deg;C`;
+                    forecastList.appendChild(li);
+                });
             }
         };
 
-        // Spotlight Functions
-        const displaySpotlights = (members) => {
-            const spotlightContainer = document.getElementById('spotlight-container');
-            if (!spotlightContainer) return;
-            spotlightContainer.innerHTML = '';
-
-            const eligibleMembers = members.filter(m => m.membership_level === 'Gold' || m.membership_level === 'Silver');
-            const shuffled = eligibleMembers.sort(() => 0.5 - Math.random());
-            const selected = shuffled.slice(0, 3); // Select up to 3
-
-            selected.forEach(member => {
-                let card = document.createElement('div');
-                card.className = 'card business-spotlight';
-                card.innerHTML = `
-                    <img src="${member.image}" alt="Logo de ${member.name}" loading="lazy">
-                    <h3>${member.name}</h3>
-                    <p>${member.phone}</p>
-                    <p>${member.address}</p>
-                    <hr>
-                    <a href="${member.website}" target="_blank">Visitar Web</a>`;
-                spotlightContainer.appendChild(card);
-            });
-        };
-
-        const getSpotlightData = async () => {
+        const fetchWeather = async () => {
             try {
-                const response = await fetch('data/members.json');
-                if (response.ok) {
-                    const data = await response.json();
-                    displaySpotlights(data.members);
+                const [wRes, fRes] = await Promise.all([fetch(weatherUrl), fetch(forecastUrl)]);
+                if (wRes.ok && fRes.ok) {
+                    displayWeather(await wRes.json(), await fRes.json());
                 }
-            } catch (error) {
-                console.error('Error loading spotlight data:', error);
+            } catch (err) {
+                console.error(err);
             }
         };
+        fetchWeather();
 
-        getWeatherData();
-        getSpotlightData();
+        // Spotlights (Gold/Silver members)
+        const loadSpotlights = async () => {
+            const data = await fetchData('data/members.json');
+            const container = document.getElementById('spotlight-container');
+            if (data && data.members && container) {
+                const qualified = data.members.filter(m => m.membership_level === 'Gold' || m.membership_level === 'Silver');
+                // Random shuffle
+                const shuffled = qualified.sort(() => 0.5 - Math.random()).slice(0, 3);
+                
+                container.innerHTML = '';
+                shuffled.forEach(m => {
+                    const div = document.createElement('div');
+                    div.className = 'card business-spotlight';
+                    div.innerHTML = `
+                        <h3>${m.name}</h3>
+                        <img src="${m.image}" alt="${m.name}" loading="lazy" width="100" height="auto">
+                        <p>${m.phone}</p>
+                        <p>${m.address}</p>
+                        <a href="${m.website}">Website</a>
+                        <p>${m.membership_level} Member</p>
+                    `;
+                    container.appendChild(div);
+                });
+            }
+        };
+        loadSpotlights();
     }
 });

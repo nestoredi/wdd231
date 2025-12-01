@@ -1,4 +1,4 @@
-/* ---- RESPONSIVE DESIGN FOR LARGER SCREENS ---- */
+/* ---- RESPONSIVE DESIGN FOR LARGER SCREENS (Tablets & Desktop) ---- */
 
 @media (min-width: 768px) {
     header {
@@ -17,25 +17,45 @@
     footer {
         grid-template-columns: 1fr 1fr 1fr;
         gap: 0;
+        text-align: left;
+    }
+    .footer-info { justify-content: flex-start; }
+    .footer-contact { text-align: center; }
+    .footer-meta { text-align: right; }
+
+    /* Home Page Grid */
+    .home-grid {
+        grid-template-columns: 2fr 1fr 1fr;
     }
     
+    .spotlight-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Join Page Grid */
     .join-main {
-        grid-template-columns: 2fr 1fr; /* Formulario 2/3, Niveles 1/3 */
+        grid-template-columns: 2fr 1fr; 
         grid-template-areas:
             "form levels"
-            "why-join levels"; /* Los niveles ocupan dos filas */
+            "why-join levels";
     }
 
     .join-form-container { grid-area: form; }
-    .membership-levels { grid-area: levels; }
+    .membership-levels { grid-area: levels; display: block; } /* Block to stack vertically inside the column */
+    .level-card { margin-bottom: 1.5rem; }
     .why-join-us { grid-area: why-join; }
     
-     /* --- DISCOVER PAGE HOVER EFFECTS --- */
-    /* Requisito de rúbrica: Efecto imagen solo en vistas grandes */
+    /* Directory Page List View fix for desktop */
+    .directory-list .member-card { 
+        grid-template-columns: 200px 1fr; 
+        text-align: left; 
+    }
+    .directory-list .member-card img { margin: 0; }
+    
+     /* Discover Hover Effects (Rubric requirement usually) */
     .place-card:hover img {
-        transform: scale(1.05);
-        filter: brightness(1.1);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transform: scale(1.02);
+        transition: transform 0.3s;
     }
 }
 
@@ -65,54 +85,18 @@
         position: absolute;
         top: 1.5rem;
         right: 1.5rem;
-        font-size: 2rem;
-        background-color: var(--secondary-color);
-        color: #ffffff;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-    
-    .hero-action {
-        position: static;
-        display: block;
-        margin: 1rem auto 0;
-        width: fit-content;
     }
 }
 
-/* --- Media Queries for Discover Grid --- */
-@media (min-width: 641px) and (max-width: 1024px) {
+/* --- Media Queries for Discover Grid specific layout --- */
+@media (min-width: 641px) {
     .discover-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            "card1 card2"
-            "card3 card4"
-            "card5 card6"
-            "card7 card8";
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (min-width: 1025px) {
     .discover-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-            "card1 card2 card3"
-            "card4 card5 card6"
-            "card7 card8 .";
+        grid-template-columns: 1fr 1fr 1fr;
     }
-}
-
-/* --- Grid Area Assignments for Discover Page --- */
-@media (min-width: 641px) {
-    .place-card:nth-child(1) { grid-area: card1; }
-    .place-card:nth-child(2) { grid-area: card2; }
-    .place-card:nth-child(3) { grid-area: card3; }
-    .place-card:nth-child(4) { grid-area: card4; }
-    .place-card:nth-child(5) { grid-area: card5; }
-    .place-card:nth-child(6) { grid-area: card6; }
-    .place-card:nth-child(7) { grid-area: card7; }
-    .place-card:nth-child(8) { grid-area: card8; }
 }

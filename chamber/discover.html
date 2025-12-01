@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CORRECCIÓN: Autor consistente con otros archivos -->
     <meta name="author" content="Nestor Edison Crossa">
-
-      <!-- CORRECCIÓN RÚBRICA: Debe contener "Discover" y el nombre de la cámara -->
     <title>Discover Río Negro - Trade Face Chamber of Commerce</title>
-    <!-- CORRECCIÓN: Descripción en español -->
     <meta name="description" content="Conoce la historia, demografía y atracciones turísticas de Río Negro, Uruguay.">
     
-    <!-- Metas para Redes Sociales (Open Graph) consistentes -->
     <meta property="og:title" content="Descubre - Trade Face de Río Negro">
     <meta property="og:type" content="website">
-      <meta property="og:description" content="Únete a la Cámara de Comercio de Río Negro. Descubre eventos, noticias y una red de empresas locales dedicadas a impulsar el crecimiento de nuestra comunidad.">
+    <meta property="og:description" content="Únete a la Cámara de Comercio de Río Negro. Descubre eventos, noticias y una red de empresas locales dedicadas a impulsar el crecimiento de nuestra comunidad.">
     <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/discover.html"> 
     <meta property="og:image" content="https://nestoredi.github.io/wdd231/chamber/images/logo.webp">
     
@@ -22,10 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
     
-    <!-- NUEVO: Añadido larger.css para responsividad completa -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/larger.css">
-    
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
@@ -41,29 +34,23 @@
             <button id="menu-button" aria-label="Toggle Navigation" aria-expanded="false">☰</button>
             <ul id="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <!-- Wayfinding: La clase 'active' está en el enlace correcto -->
                 <li><a class="active" href="discover.html">Discover</a></li>
                 <li><a href="directory.html">Directory</a></li>
                 <li><a href="join.html">Join</a></li>
             </ul>
         </nav>
-        
     </header>
 
     <main class="discover-main">
-        <!-- CORRECCIÓN: Contenido principal en español -->
         <h1>Descubre la Riqueza de Río Negro</h1>
         
         <section id="visit-message-card" class="card">
             <h2>Tu Visita</h2>
-            <!-- CORRECCIÓN: Mensaje de carga en español -->
             <p id="visit-message">Cargando información de tu visita...</p>
         </section>
 
-        <!-- El contenido de esta sección se genera dinámicamente con main.js -->
         <section id="places-of-interest-grid" class="discover-grid">
             <h2 class="visually-hidden">Lugares de Interés</h2>
-            <!-- CORRECCIÓN: Mensaje de carga en español -->
             <p>Cargando lugares de interés...</p>
         </section>
     </main>
@@ -82,12 +69,11 @@
         </div>
         <div class="footer-meta">
             <p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p>
-            <!-- CORRECCIÓN: Consistencia en nombre y texto del proyecto -->
             <p><strong>Nestor Edison Crossa</strong></p>
             <p>Proyecto WDD 231</p>
             <p>Última Modificación: <span id="last-modified"></span></p>
         </div>
     </footer>
-    <script src="scripts/main.js" defer></script> <!-- MOVIDO Y AÑADIDO DEFER -->
+    <script type="module" src="scripts/main.js"></script>
 </body>
 </html>

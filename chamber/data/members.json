@@ -1,4 +1,3 @@
-
 {
   "members": [
     {
@@ -56,6 +55,70 @@
       "website": "https://www.fraybentoslogistica.com",
       "image": "images/frayventoslogistica.jpg",
       "membership_level": "Silver"
+    },
+    {
+      "name": "TechSolutions Uruguay",
+      "address": "Calle Brasil 445, Fray Bentos",
+      "phone": "(+598) 4567-1111",
+      "website": "https://www.techsolutions.uy",
+      "image": "images/anglo.jpg",
+      "membership_level": "Gold"
+    },
+    {
+      "name": "Maderas del Litoral",
+      "address": "Ruta 24 Km 50, Río Negro",
+      "phone": "(+598) 4567-2222",
+      "website": "https://www.maderaslitoral.com",
+      "image": "images/logo.png",
+      "membership_level": "Bronze"
+    },
+    {
+      "name": "Transportes El Rápido",
+      "address": "Terminal de Ómnibus, Fray Bentos",
+      "phone": "(+598) 4567-3333",
+      "website": "https://www.elrapido.com.uy",
+      "image": "images/playa.jpg",
+      "membership_level": "Silver"
+    },
+    {
+      "name": "Hotel Plaza",
+      "address": "18 de Julio y 25 de Mayo, Fray Bentos",
+      "phone": "(+598) 4567-4444",
+      "website": "https://www.hotelplaza.uy",
+      "image": "images/rionegro.jpg",
+      "membership_level": "Gold"
+    },
+    {
+      "name": "Restaurante El Puerto",
+      "address": "Rambla Dr. A. Rilla, Fray Bentos",
+      "phone": "(+598) 4567-5555",
+      "website": "https://www.elpuerto.uy",
+      "image": "images/utec.jpg",
+      "membership_level": "Bronze"
+    },
+    {
+      "name": "Supermercado El Dorado",
+      "address": "Av. Rincón 1000, Fray Bentos",
+      "phone": "(+598) 4567-6666",
+      "website": "https://www.eldorado.com.uy",
+      "image": "images/fb.jpg",
+      "membership_level": "Silver"
+    },
+    {
+      "name": "Farmacia San José",
+      "address": "Treinta y Tres 1200, Fray Bentos",
+      "phone": "(+598) 4567-7777",
+      "website": "https://www.farmaciasanjose.uy",
+      "image": "images/fb1.jpg",
+      "membership_level": "Bronze"
+    },
+    {
+      "name": "Constructora del Río",
+      "address": "Parque Industrial, Fray Bentos",
+      "phone": "(+598) 4567-8888",
+      "website": "https://www.constructurario.uy",
+      "image": "images/playa1.jpg",
+      "membership_level": "Gold"
     }
   ]
 }

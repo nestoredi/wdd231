@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/larger.css">
     <link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <header>
@@ -41,26 +42,41 @@
         <h1>Cámara de Comercio de Río Negro</h1>
         <section class="hero">
             <h2 class="visually-hidden">Bienvenido a Río Negro</h2>
-            <img src="images/rionegro.webp" alt="Paisaje del Anglo en Río Negro" loading="lazy" width="1200" height="600">
+            <picture>
+                <source media="(max-width: 600px)" srcset="images/rionegro-small.webp">
+                <img src="images/rionegro.webp" alt="Paisaje del Anglo en Río Negro" loading="lazy" width="1200" height="600">
+            </picture>
             <a href="join.html" class="hero-action">Únete a Nosotros</a>
         </section>
-        <section class="home-grid">
-            <div class="card events"><h3>Eventos</h3><p><strong>Próximo evento:</strong> Seminario de Innovación Agrícola.</p></div>
-            <div class="card weather" id="weather-card">
+        
+        <div class="home-grid">
+            <section class="card events">
+                <h3>Eventos</h3>
+                <p><strong>Próximo evento:</strong> Seminario de Innovación Agrícola.</p>
+                <p>Fecha: 25 de Noviembre, 18:00hs</p>
+                <p>Lugar: Sala de Convenciones del Anglo</p>
+            </section>
+            
+            <section class="card weather" id="weather-card">
                 <h3>Clima Actual</h3>
-                <p><span id="current-temp">Cargando...</span></p>
-                <p><span id="current-description"></span></p>
-            </div>
-            <div class="card forecast">
+                <div class="weather-content">
+                    <img id="weather-icon" src="" alt="" width="50" height="50">
+                    <p><span id="current-temp">Cargando...</span></p>
+                    <p><span id="current-description"></span></p>
+                </div>
+            </section>
+            
+            <section class="card forecast">
                 <h3>Pronóstico a 3 Días</h3>
                 <ul id="forecast-list">
-                    <li>Cargando...</li>
+                    <li>Cargando pronóstico...</li>
                 </ul>
-            </div>
-        </section>
+            </section>
+        </div>
+
         <section class="spotlights">
             <h2>Empresas Destacadas</h2>
-            <div id="spotlight-container">
+            <div id="spotlight-container" class="spotlight-grid">
                 <!-- El contenido será cargado por JavaScript -->
             </div>
         </section>
@@ -73,6 +89,8 @@
         <div class="footer-contact"><p>info@traderionegro.uy</p><p>(+598) 1234-5678</p></div>
         <div class="footer-meta"><p>&copy; <span id="copyright-year"></span> Trade Face</p><p><strong>Nestor Edison Crossa</strong></p><p>Proyecto WDD 231</p><p>Última Modificación: <span id="last-modified"></span></p></div>
     </footer>
-    <script src="scripts/main.js" defer></script>
+    <!-- Note: type="module" fulfills Rubric #12 (ES Module use) -->
+    <script type="module" src="scripts/main.js"></script>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>

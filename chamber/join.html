@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Nestor Edison Crossa">
-    <!-- CORRECCIÓN: "Join the" en lugar de "Join to the" -->
-    <title>Join the Trade Face de Río Negro</title>
+    <title>Join the Trade Face of Río Negro</title>
     <meta name="description" content="Formulario de solicitud para unirse a la Cámara de Comercio de Río Negro. Conoce los beneficios y niveles de membresía para tu empresa.">
     
     <meta property="og:title" content="Únete a la Cámara de Comercio de Río Negro">
@@ -80,17 +79,16 @@
                 <label for="membership-level">Nivel de Membresía*</label>
                 <select id="membership-level" name="membership-level" required title="Selecciona el nivel de membresía deseado">
                     <option value="" disabled selected>Selecciona un nivel...</option>
-                    <option value="np">Membresía NP (Sin Fines de Lucro)</option>
-                    <option value="bronze">Membresía Bronce</option>
-                    <option value="silver">Membresía Plata</option>
-                    <option value="gold">Membresía Oro</option>
+                    <option value="NP Membership">Membresía NP (Sin Fines de Lucro)</option>
+                    <option value="Bronze Membership">Membresía Bronce</option>
+                    <option value="Silver Membership">Membresía Plata</option>
+                    <option value="Gold Membership">Membresía Oro</option>
                 </select>
 
                 <label for="description">Descripción de la Empresa/Organización</label>
                 <textarea id="description" name="description" rows="4" 
                           title="Proporciona una breve descripción de tu empresa u organización"></textarea>
 
-                <!-- ESTE ES EL INPUT CLAVE QUE DEBE LLENARSE -->
                 <input type="hidden" id="form-load-time" name="form-load-time">
 
                 <button type="submit">Enviar Solicitud</button>
@@ -169,7 +167,7 @@
         </div>
     </footer>
 
-    <!-- Modales se mantienen igual... -->
+    <!-- Modales -->
     <div id="modal-np" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
@@ -222,6 +220,6 @@
             </ul>
         </div>
     </div>
-    <script src="scripts/main.js" defer></script>
+    <script type="module" src="scripts/main.js"></script>
 </body>
 </html>

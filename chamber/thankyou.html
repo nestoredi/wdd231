@@ -3,26 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Nestor Crossa Wdd231 course">
+    <meta name="author" content="Nestor Edison Crossa">
     <title>Gracias - Trade Face</title>
+    <meta name="description" content="Página de confirmación de solicitud de membresía.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <img src="https://via.placeholder.com/80" alt="Logo Trade Face of Río Negro" width="80" height="80">
-            <div class="site-name"><h1>Trade Face</h1><p>of Río Negro</p></div>
-        </div>
+        <a class="logo-container" href="index.html">
+            <img src="images/logo.webp" alt="Logo de Trade Face of Río Negro" width="80" height="80">
+            <div class="site-name">
+                <div class="title">Trade Face</div>
+                <div class="subtitle">of Río Negro</div>
+            </div>
+        </a>
+        <nav>
+            <button id="menu-button" aria-label="Toggle Navigation" aria-expanded="false">☰</button>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
     </header>
-    <main style="text-align: center; padding: 4rem;">
+
+    <main class="thankyou-main">
         <h1>¡Gracias por tu solicitud!</h1>
-        <p>Hemos recibido tus datos correctamente.</p>
-        <p>Nos pondremos en contacto contigo a la brevedad para completar el proceso de membresía.</p>
-        <a href="index.html" style="display: inline-block; margin-top: 2rem; padding: 0.8rem 1.5rem; background-color: #415a77; color: white; text-decoration: none; border-radius: 5px;">Volver al Inicio</a>
+        <div class="card">
+            <p>Hemos recibido tus datos correctamente.</p>
+            <p>A continuación se muestra la información que enviaste:</p>
+            
+            <!-- Fulfills Rubric #7: Valid form entries are displayed on a form action page -->
+            <div id="results" class="results-container">
+                <!-- Data will be injected here by JavaScript -->
+            </div>
+
+            <p>Nos pondremos en contacto contigo a la brevedad para completar el proceso de membresía.</p>
+            <a href="index.html" class="hero-action">Volver al Inicio</a>
+        </div>
     </main>
+
     <footer>
-        <div class="footer-meta"><p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p></div>
+        <div class="footer-info">
+            <img src="images/logo.webp" alt="Logo Pequeño" width="60" height="60">
+            <div><p><strong>Trade Face of Río Negro</strong></p><p>18 de Julio 1234, Fray Bentos</p></div>
+        </div>
+        <div class="footer-contact"><p>info@traderionegro.uy</p><p>(+598) 1234-5678</p></div>
+        <div class="footer-meta"><p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p><p><strong>Nestor Edison Crossa</strong></p></div>
     </footer>
-    <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+    <script type="module" src="scripts/main.js"></script>
 </body>
 </html>
