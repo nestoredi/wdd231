@@ -5,7 +5,7 @@
       "address": "Av. 18 de Julio 1234, Fray Bentos",
       "phone": "(+598) 4567-8901",
       "website": "https://www.dulcerio.com",
-      "image": "images/riodulce.png",
+      "image": "riodulce.png",
       "membership_level": "Gold"
     },
     {
@@ -13,7 +13,7 @@
       "address": "Ruta 2 Km 301, Fray Bentos",
       "phone": "(+598) 4567-1234",
       "website": "https://www.agroinnova.uy",
-      "image": "images/Agro innovacion-logo.png",
+      "image": "Agro innovacion-logo.png",
       "membership_level": "Silver"
     },
     {
@@ -21,7 +21,7 @@
       "address": "Rambla Costanera, Fray Bentos",
       "phone": "(+598) 4567-5678",
       "website": "https://www.rioaventura.uy",
-      "image": "images/rioaventura.jpg",
+      "image": "rioaventura.jpg",
       "membership_level": "Bronze"
     },
     {
@@ -29,7 +29,7 @@
       "address": "Zorrilla de San Martín 876, Fray Bentos",
       "phone": "(+598) 4567-9012",
       "website": "https://www.codigonativo.uy",
-      "image": "images/codigonativo.jpg",
+      "image": "codigonativo.jpg",
       "membership_level": "Silver"
     },
     {
@@ -37,7 +37,7 @@
       "address": "Camino Vecinal s/n, Young",
       "phone": "(+598) 4568-3456",
       "website": "https://www.eltalar.uy",
-      "image": "images/eltalar.jpg",
+      "image": "eltalar.jpg",
       "membership_level": "Gold"
     },
     {
@@ -45,7 +45,7 @@
       "address": "Ruta 20 Km 25, Young",
       "phone": "(+598) 4568-7890",
       "website": "https://www.lacteosrincon.uy",
-      "image": "images/lacteosrincon.jpg",
+      "image": "lacteosrincon.jpg",
       "membership_level": "Bronze"
     },
     {
@@ -53,7 +53,7 @@
       "address": "Barrio Anglo, Fray Bentos",
       "phone": "(+598) 4567-2345",
       "website": "https://www.fraybentoslogistica.com",
-      "image": "images/frayventoslogistica.jpg",
+      "image": "frayventoslogistica.jpg",
       "membership_level": "Silver"
     },
     {
@@ -61,7 +61,7 @@
       "address": "Calle Brasil 445, Fray Bentos",
       "phone": "(+598) 4567-1111",
       "website": "https://www.techsolutions.uy",
-      "image": "images/anglo.jpg",
+      "image": "anglo.jpg",
       "membership_level": "Gold"
     },
     {
@@ -69,7 +69,7 @@
       "address": "Ruta 24 Km 50, Río Negro",
       "phone": "(+598) 4567-2222",
       "website": "https://www.maderaslitoral.com",
-      "image": "images/logo.png",
+      "image": "logo.png",
       "membership_level": "Bronze"
     },
     {
@@ -77,7 +77,7 @@
       "address": "Terminal de Ómnibus, Fray Bentos",
       "phone": "(+598) 4567-3333",
       "website": "https://www.elrapido.com.uy",
-      "image": "images/playa.jpg",
+      "image": "playa.jpg",
       "membership_level": "Silver"
     },
     {
@@ -85,7 +85,7 @@
       "address": "18 de Julio y 25 de Mayo, Fray Bentos",
       "phone": "(+598) 4567-4444",
       "website": "https://www.hotelplaza.uy",
-      "image": "images/rionegro.jpg",
+      "image": "rionegro.jpg",
       "membership_level": "Gold"
     },
     {
@@ -93,7 +93,7 @@
       "address": "Rambla Dr. A. Rilla, Fray Bentos",
       "phone": "(+598) 4567-5555",
       "website": "https://www.elpuerto.uy",
-      "image": "images/utec.jpg",
+      "image": "utec.jpg",
       "membership_level": "Bronze"
     },
     {
@@ -101,7 +101,7 @@
       "address": "Av. Rincón 1000, Fray Bentos",
       "phone": "(+598) 4567-6666",
       "website": "https://www.eldorado.com.uy",
-      "image": "images/fb.jpg",
+      "image": "fb.jpg",
       "membership_level": "Silver"
     },
     {
@@ -109,7 +109,7 @@
       "address": "Treinta y Tres 1200, Fray Bentos",
       "phone": "(+598) 4567-7777",
       "website": "https://www.farmaciasanjose.uy",
-      "image": "images/fb1.jpg",
+      "image": "fb1.jpg",
       "membership_level": "Bronze"
     },
     {
@@ -117,7 +117,7 @@
       "address": "Parque Industrial, Fray Bentos",
       "phone": "(+598) 4567-8888",
       "website": "https://www.constructurario.uy",
-      "image": "images/playa1.jpg",
+      "image": "playa1.jpg",
       "membership_level": "Gold"
     }
   ]

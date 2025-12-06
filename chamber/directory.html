@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Nestor Edison Crossa">
     <title>Directorio - Trade Face</title>
-    <meta name="description" content="Directorio de empresas y organizaciones miembro de la Cámara de Comercio de Río Negro.">
+    <meta name="description" content="Directorio de empresas y organizaciones miembro de la Cámara de Comercio de Río Negro. Encuentra socios locales.">
+    <meta name="author" content="Nestor Edison Crossa">
     
+    <!-- Social Media / Open Graph -->
     <meta property="og:title" content="Directorio de Miembros - Trade Face of Río Negro">
     <meta property="og:type" content="website">
-      <meta property="og:description" content="Únete a la Cámara de Comercio de Río Negro. Descubre eventos, noticias y una red de empresas locales dedicadas a impulsar el crecimiento de nuestra comunidad.">
+    <meta property="og:description" content="Explora la lista de empresas y organizaciones miembro de la Cámara de Comercio de Río Negro. Conecta con el comercio local.">
     <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/directory.html"> 
     <meta property="og:image" content="https://nestoredi.github.io/wdd231/chamber/images/logo.webp">
 
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
     
+    <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/larger.css">
-    
-    <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <header>
@@ -40,7 +44,6 @@
                 <li><a href="join.html">Join</a></li>
             </ul>
         </nav>
-        
     </header>
 
     <main class="directory-main">
@@ -50,8 +53,8 @@
             <h2>Nuestros Miembros</h2>
             <p>Explora la diversa red de empresas y organizaciones que forman parte de nuestra comunidad.</p>
             <div class="view-toggle">
-                <button id="grid-view-btn" class="active">⏹️ Cuadrícula</button>
-                <button id="list-view-btn">📄 Lista</button>
+                <button id="grid-view-btn" class="active" aria-label="Vista Cuadrícula">⏹️ Cuadrícula</button>
+                <button id="list-view-btn" aria-label="Vista Lista">📄 Lista</button>
             </div>
         </section>
 

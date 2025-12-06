@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Nestor Edison Crossa">
     <title>Trade Face of Río Negro - Cámara de Comercio</title>
-    <meta name="description" content="Sitio web oficial de la Cámara de Comercio de Río Negro, Uruguay. Fomentando el comercio y la comunidad local.">
-    <meta property="og:title" content="Home page - Trade Face of Río Negro">
+    <meta name="description" content="Bienvenido a Trade Face of Río Negro. Impulsando el comercio, la innovación y la comunidad en Fray Bentos y alrededores. Únete a nosotros.">
+    <meta name="author" content="Nestor Edison Crossa">
+
+    <!-- Social Media / Open Graph -->
+    <meta property="og:title" content="Inicio - Trade Face of Río Negro">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Únete a la Cámara de Comercio de Río Negro. Descubre eventos, noticias y una red de empresas locales dedicadas a impulsar el crecimiento de nuestra comunidad.">
+    <meta property="og:description" content="Bienvenido a Trade Face of Río Negro. Impulsando el comercio, la innovación y la comunidad en Fray Bentos y alrededores.">
     <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/index.html">
     <meta property="og:image" content="https://nestoredi.github.io/wdd231/chamber/images/logo.webp">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/larger.css">
-    <link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <header>
@@ -45,11 +54,17 @@
             <a href="join.html" class="hero-action">Únete a Nosotros</a>
         </section>
         <section class="home-grid">
-            <div class="card events"><h3>Eventos</h3><p><strong>Próximo evento:</strong> Seminario de Innovación Agrícola.</p></div>
+            <div class="card events">
+                <h3>Eventos</h3>
+                <p><strong>Próximo evento:</strong> Seminario de Innovación Agrícola.</p>
+            </div>
             <div class="card weather" id="weather-card">
                 <h3>Clima Actual</h3>
-                <p><span id="current-temp">Cargando...</span></p>
-                <p><span id="current-description"></span></p>
+                <div class="weather-content">
+                    <img id="weather-icon" src="" alt="" loading="lazy">
+                    <p><span id="current-temp">Cargando...</span></p>
+                    <p><span id="current-description"></span></p>
+                </div>
             </div>
             <div class="card forecast">
                 <h3>Pronóstico a 3 Días</h3>
@@ -60,7 +75,7 @@
         </section>
         <section class="spotlights">
             <h2>Empresas Destacadas</h2>
-            <div id="spotlight-container">
+            <div id="spotlight-container" class="spotlight-grid">
                 <!-- El contenido será cargado por JavaScript -->
             </div>
         </section>
@@ -68,11 +83,24 @@
     <footer>
         <div class="footer-info">
             <img src="images/logo.webp" alt="Logo Pequeño" width="60" height="60">
-            <div><p><strong>Trade Face of Río Negro</strong></p><p>18 de Julio 1234, Fray Bentos</p></div>
+            <div>
+                <p><strong>Trade Face of Río Negro</strong></p>
+                <p>18 de Julio 1234, Fray Bentos</p>
+            </div>
         </div>
-        <div class="footer-contact"><p>info@traderionegro.uy</p><p>(+598) 1234-5678</p></div>
-        <div class="footer-meta"><p>&copy; <span id="copyright-year"></span> Trade Face</p> <p><a href="https://www.loom.com/share/19f999d608774b898bfb5a9c750d65f1" target="_blank">video NestorCrossa</a></p><p><strong>Nestor Edison Crossa</strong></p><p>Proyecto WDD 231</p><p>Última Modificación: <span id="last-modified"></span></p></div>
+        <div class="footer-contact">
+            <p>info@traderionegro.uy</p>
+            <p>(+598) 1234-5678</p>
+        </div>
+        <div class="footer-meta">
+            <p>&copy; <span id="copyright-year"></span> Trade Face</p> 
+            <p><a href="https://www.loom.com/share/19f999d608774b898bfb5a9c750d65f1" target="_blank">video NestorCrossa</a></p>
+            <p><strong>Nestor Edison Crossa</strong></p>
+            <p>Proyecto WDD 231</p>
+            <p>Última Modificación: <span id="last-modified"></span></p>
+        </div>
     </footer>
-    <script src="scripts/main.js" defer></script>
+    <script type="module" src="scripts/main.js"></script>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>
