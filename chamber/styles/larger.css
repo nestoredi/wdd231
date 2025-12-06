@@ -41,21 +41,35 @@
     }
 
     .join-form-container { grid-area: form; }
-    .membership-levels { grid-area: levels; display: block; } /* Block to stack vertically inside the column */
+    .membership-levels { grid-area: levels; display: block; } 
     .level-card { margin-bottom: 1.5rem; }
     .why-join-us { grid-area: why-join; }
     
-    /* Directory Page List View fix for desktop */
+    /* --- Directory List View for Desktop --- */
+    /* This transforms the stack into a row for better use of space */
     .directory-list .member-card { 
-        grid-template-columns: 200px 1fr; 
+        flex-direction: row;
         text-align: left; 
+        align-items: center;
+        padding: 1rem 2rem;
     }
-    .directory-list .member-card img { margin: 0; }
+    .directory-list .member-card img { 
+        margin-right: 2rem; 
+        margin-bottom: 0;
+        width: 150px;
+    }
+    .directory-list .member-card div {
+        flex: 1;
+    }
     
-     /* Discover Hover Effects (Rubric requirement usually) */
+    /* Hover Effects */
     .place-card:hover img {
         transform: scale(1.02);
         transition: transform 0.3s;
+    }
+    
+    .home-grid .card {
+        height: 100%;
     }
 }
 
@@ -74,10 +88,17 @@
         flex-direction: column;
         width: 100%;
         text-align: center;
+        padding-top: 1rem;
     }
 
     nav ul.open {
         display: flex;
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     #menu-button {
