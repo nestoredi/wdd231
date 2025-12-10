@@ -1,0 +1,44 @@
+{
+  "places": [
+    {
+      "name": "Museo de la Revolución Industrial",
+      "image": "rionegro.webp",
+      "description": "Antiguo frigorífico Anglo, declarado Patrimonio de la Humanidad por la UNESCO."
+    },
+    {
+      "name": "Balneario Las Cañas",
+      "image": "rionegro.webp",
+      "description": "Hermosas playas sobre el Río Uruguay, rodeadas de monte nativo."
+    },
+    {
+      "name": "Teatro Young",
+      "image": "utec.jpg",
+      "description": "Un centro cultural histórico en el corazón de la ciudad de Young."
+    },
+    {
+      "name": "Plaza Constitución",
+      "image": "playa.jpg",
+      "description": "El punto de encuentro central en Fray Bentos con su icónico quiosco."
+    },
+    {
+      "name": "Parque Roosevelt",
+      "image": "playa1.jpg",
+      "description": "Espacio verde ideal para actividades recreativas y eventos al aire libre."
+    },
+    {
+      "name": "Museo Solari",
+      "image": "museo.jpg",
+      "description": "Dedicado a la obra del reconocido pintor Luis Solari."
+    },
+    {
+      "name": "Puente San Martín",
+      "image": "puente.jpg",
+      "description": "Importante conexión internacional con Argentina y obra de ingeniería."
+    },
+    {
+      "name": "Puerto de Fray Bentos",
+      "image": "fb1.jpg",
+      "description": "Uno de los puertos de ultramar más importantes del litoral."
+    }
+  ]
+}

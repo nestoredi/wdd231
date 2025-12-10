@@ -1,0 +1,124 @@
+{
+  "members": [
+    {
+      "name": "Dulce Río",
+      "address": "Av. 18 de Julio 1234, Fray Bentos",
+      "phone": "(+598) 4567-8901",
+      "website": "https://www.dulcerio.com",
+      "image": "riodulce.png",
+      "membership_level": "Gold"
+    },
+    {
+      "name": "Agro-Innovación",
+      "address": "Ruta 2 Km 301, Fray Bentos",
+      "phone": "(+598) 4567-1234",
+      "website": "https://www.agroinnova.uy",
+      "image": "Agro innovacion-logo.png",
+      "membership_level": "Silver"
+    },
+    {
+      "name": "Río Aventura",
+      "address": "Rambla Costanera, Fray Bentos",
+      "phone": "(+598) 4567-5678",
+      "website": "https://www.rioaventura.uy",
+      "image": "rioaventura.jpg",
+      "membership_level": "Bronze"
+    },
+    {
+      "name": "Código Nativo",
+      "address": "Zorrilla de San Martín 876, Fray Bentos",
+      "phone": "(+598) 4567-9012",
+      "website": "https://www.codigonativo.uy",
+      "image": "codigonativo.jpg",
+      "membership_level": "Silver"
+    },
+    {
+      "name": "El Talar Bodega",
+      "address": "Camino Vecinal s/n, Young",
+      "phone": "(+598) 4568-3456",
+      "website": "https://www.eltalar.uy",
+      "image": "eltalar.jpg",
+      "membership_level": "Gold"
+    },
+    {
+      "name": "Lácteos Rincón",
+      "address": "Ruta 20 Km 25, Young",
+      "phone": "(+598) 4568-7890",
+      "website": "https://www.lacteosrincon.uy",
+      "image": "lacteosrincon.jpg",
+      "membership_level": "Bronze"
+    },
+    {
+      "name": "Fray Bentos Logística",
+      "address": "Barrio Anglo, Fray Bentos",
+      "phone": "(+598) 4567-2345",
+      "website": "https://www.fraybentoslogistica.com",
+      "image": "frayventoslogistica.jpg",
+      "membership_level": "Silver"
+    },
+    {
+      "name": "TechSolutions Uruguay",
+      "address": "Calle Brasil 445, Fray Bentos",
+      "phone": "(+598) 4567-1111",
+      "website": "https://www.techsolutions.uy",
+      "image": "anglo.jpg",
+      "membership_level": "Gold"
+    },
+    {
+      "name": "Maderas del Litoral",
+      "address": "Ruta 24 Km 50, Río Negro",
+      "phone": "(+598) 4567-2222",
+      "website": "https://www.maderaslitoral.com",
+      "image": "logo.png",
+      "membership_level": "Bronze"
+    },
+    {
+      "name": "Transportes El Rápido",
+      "address": "Terminal de Ómnibus, Fray Bentos",
+      "phone": "(+598) 4567-3333",
+      "website": "https://www.elrapido.com.uy",
+      "image": "playa.jpg",
+      "membership_level": "Silver"
+    },
+    {
+      "name": "Hotel Plaza",
+      "address": "18 de Julio y 25 de Mayo, Fray Bentos",
+      "phone": "(+598) 4567-4444",
+      "website": "https://www.hotelplaza.uy",
+      "image": "rionegro.jpg",
+      "membership_level": "Gold"
+    },
+    {
+      "name": "Restaurante El Puerto",
+      "address": "Rambla Dr. A. Rilla, Fray Bentos",
+      "phone": "(+598) 4567-5555",
+      "website": "https://www.elpuerto.uy",
+      "image": "utec.jpg",
+      "membership_level": "Bronze"
+    },
+    {
+      "name": "Supermercado El Dorado",
+      "address": "Av. Rincón 1000, Fray Bentos",
+      "phone": "(+598) 4567-6666",
+      "website": "https://www.eldorado.com.uy",
+      "image": "fb.jpg",
+      "membership_level": "Silver"
+    },
+    {
+      "name": "Farmacia San José",
+      "address": "Treinta y Tres 1200, Fray Bentos",
+      "phone": "(+598) 4567-7777",
+      "website": "https://www.farmaciasanjose.uy",
+      "image": "fb1.jpg",
+      "membership_level": "Bronze"
+    },
+    {
+      "name": "Constructora del Río",
+      "address": "Parque Industrial, Fray Bentos",
+      "phone": "(+598) 4567-8888",
+      "website": "https://www.constructurario.uy",
+      "image": "playa1.jpg",
+      "membership_level": "Gold"
+    }
+  ]
+}

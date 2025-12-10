@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Únete a Trade Face of Río Negro</title>
+    <meta name="description" content="Formulario de solicitud para unirse a la Cámara de Comercio de Río Negro. Conoce los beneficios y niveles de membresía para tu empresa.">
+    <meta name="author" content="Nestor Edison Crossa">
+    
+    <!-- Social Media / Open Graph -->
+    <meta property="og:title" content="Únete a la Cámara de Comercio de Río Negro">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Conviértete en miembro de la Cámara de Comercio de Río Negro. Conoce nuestros niveles de membresía y beneficios exclusivos.">
+    <meta property="og:url" content="https://nestoredi.github.io/wdd231/chamber/join.html"> 
+    <meta property="og:image" content="https://nestoredi.github.io/wdd231/chamber/images/logo.webp">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/larger.css">
+</head>
+<body>
+    <header>
+        <a class="logo-container" href="index.html">
+            <img src="images/logo.webp" alt="Logo de Trade Face of Río Negro" width="80" height="80">
+            <div class="site-name">
+                <div class="title">Trade Face</div>
+                <div class="subtitle">of Río Negro</div>
+            </div>
+        </a>
+        <nav>
+            <button id="menu-button" aria-label="Toggle Navigation" aria-expanded="false">☰</button>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a class="active" href="join.html">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="join-main">
+        <h1>Únete a la Cámara de Comercio</h1>
+        
+        <section class="join-form-container card">
+            <h2>Formulario de Solicitud</h2>
+            <form action="thankyou.html" method="get">
+                <label for="fname">Nombre*</label>
+                <input type="text" id="fname" name="fname" required title="Por favor, ingresa tu nombre" autocomplete="given-name">
+
+                <label for="lname">Apellido*</label>
+                <input type="text" id="lname" name="lname" required title="Por favor, ingresa tu apellido" autocomplete="family-name">
+                
+                <label for="position">Cargo en la Organización*</label>
+                <input type="text" id="position" name="position" required 
+                       pattern="[A-Za-z\s-]{3,}" 
+                       title="Debe contener al menos 3 caracteres (solo letras, espacios o guiones)"
+                       autocomplete="organization-title">
+
+                <label for="email">Correo Electrónico*</label>
+                <input type="email" id="email" name="email" required 
+                       placeholder="ejemplo@dominio.com" 
+                       title="Por favor, ingresa un correo electrónico válido"
+                       autocomplete="email">
+
+                <label for="phone">Teléfono Móvil*</label>
+                <input type="tel" id="phone" name="phone" required 
+                       placeholder="Ej: 099 123 456" 
+                       title="Por favor, ingresa tu número de teléfono"
+                       autocomplete="tel">
+
+                <label for="business">Nombre de la Empresa/Organización*</label>
+                <input type="text" id="business" name="business" required 
+                       title="Por favor, ingresa el nombre de tu empresa u organización"
+                       autocomplete="organization">
+
+                <label for="membership-level">Nivel de Membresía*</label>
+                <select id="membership-level" name="membership-level" required title="Selecciona el nivel de membresía deseado">
+                    <option value="" disabled selected>Selecciona un nivel...</option>
+                    <option value="NP Membership">Membresía NP (Sin Fines de Lucro)</option>
+                    <option value="Bronze Membership">Membresía Bronce</option>
+                    <option value="Silver Membership">Membresía Plata</option>
+                    <option value="Gold Membership">Membresía Oro</option>
+                </select>
+
+                <label for="description">Descripción de la Empresa/Organización</label>
+                <textarea id="description" name="description" rows="4" 
+                          title="Proporciona una breve descripción de tu empresa u organización"></textarea>
+
+                <input type="hidden" id="form-load-time" name="form-load-time">
+
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+        </section>
+
+        <section class="membership-levels">
+            <h2>Niveles de Membresía</h2>
+            <div class="level-card" data-level="NP">
+                <h3>Membresía NP (Sin Fines de Lucro)</h3>
+                <p>Ideal para organizaciones sin fines de lucro.</p>
+                <ul>
+                    <li>Inclusión en el directorio online.</li>
+                    <li>Acceso a eventos de networking.</li>
+                </ul>
+                <button class="learn-more-btn">Saber Más</button>
+            </div>
+            <div class="level-card" data-level="Bronze">
+                <h3>Membresía Bronce</h3>
+                <p>Para pequeñas empresas que inician su camino.</p>
+                <ul>
+                    <li>Todos los beneficios de NP.</li>
+                    <li>Listado básico en el directorio.</li>
+                    <li>Acceso a recursos exclusivos.</li>
+                </ul>
+                <button class="learn-more-btn">Saber Más</button>
+            </div>
+            <div class="level-card" data-level="Silver">
+                <h3>Membresía Plata</h3>
+                <p>Para empresas en crecimiento que buscan mayor visibilidad.</p>
+                <ul>
+                    <li>Todos los beneficios de Bronce.</li>
+                    <li>Directorio destacado con logo.</li>
+                    <li>Descuentos en eventos y talleres.</li>
+                    <li>Oportunidades de co-marketing.</li>
+                </ul>
+                <button class="learn-more-btn">Saber Más</button>
+            </div>
+            <div class="level-card" data-level="Gold">
+                <h3>Membresía Oro</h3>
+                <p>Máxima exposición y oportunidades.</p>
+                <ul>
+                    <li>Todos los beneficios de Plata.</li>
+                    <li>"Empresa Destacada" en la portada.</li>
+                    <li>Oportunidades de patrocinio prioritarias.</li>
+                    <li>Sesiones de formación exclusivas.</li>
+                    <li>Participación en comité directivo.</li>
+                </ul>
+                <button class="learn-more-btn">Saber Más</button>
+            </div>
+        </section>
+        
+        <section class="card why-join-us">
+            <h2>¿Por Qué Unirte?</h2>
+            <p>Al unirte a la Cámara, obtienes acceso a una red de contactos, recursos de desarrollo, visibilidad para tu negocio y una voz en la comunidad empresarial de Río Negro. ¡Impulsemos el crecimiento juntos!</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <img src="images/logo.webp" alt="Logo de Trade Face of Río Negro" width="60" height="60">
+            <div>
+                <p><strong>Trade Face of Río Negro</strong></p>
+                <p>18 de Julio 1234, Fray Bentos</p>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <p>info@traderionegro.uy</p>
+            <p>(+598) 1234-5678</p>
+        </div>
+        <div class="footer-meta">
+            <p>&copy; <span id="copyright-year"></span> Trade Face of Río Negro</p>
+            <p><strong>Nestor Edison Crossa</strong></p>
+            <p>Proyecto WDD 231</p>
+             <p><a href="https://www.loom.com/share/19f999d608774b898bfb5a9c750d65f1" target="_blank">video NestorCrossa</a></p>
+            <p>Última Modificación: <span id="last-modified"></span></p>
+        </div>
+    </footer>
+
+    <!-- Modales -->
+    <div id="modal-np" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Beneficios Membresía NP</h3>
+            <p>Esta membresía es exclusiva para organizaciones sin fines de lucro y no tiene costo.</p>
+            <ul>
+                <li><strong>Listado en Directorio Online:</strong> Tu organización aparecerá en nuestro directorio público.</li>
+                <li><strong>Eventos de Networking:</strong> Acceso a todos los eventos y encuentros de networking organizados por la Cámara.</li>
+                <li><strong>Representación:</strong> Tu voz contribuye a los esfuerzos de la Cámara para el desarrollo de la comunidad local.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="modal-bronze" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Beneficios Membresía Bronce</h3>
+            <p>Diseñada para pequeñas empresas y emprendimientos.</p>
+            <ul>
+                <li><strong>Todos los beneficios NP:</strong> Incluye todo lo de la membresía Sin Fines de Lucro.</li>
+                <li><strong>Listado Básico en Directorio:</strong> Tu empresa aparecerá con información de contacto clave.</li>
+                <li><strong>Acceso a Recursos Exclusivos:</strong> Biblioteca de artículos y guías de negocio.</li>
+                <li><strong>Menciones en Redes Sociales:</strong> Posibilidad de ser mencionado en nuestras plataformas sociales.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="modal-silver" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Beneficios Membresía Plata</h3>
+            <p>Para empresas en crecimiento que buscan mayor visibilidad y oportunidades de desarrollo.</p>
+            <ul>
+                <li><strong>Todos los beneficios Bronce:</strong> Incluye todo lo de la membresía Bronce.</li>
+                <li><strong>Directorio Destacado con Logo:</strong> Tu listado tendrá mayor visibilidad e incluirá el logo de tu empresa.</li>
+                <li><strong>Descuentos en Eventos y Talleres:</strong> Acceso preferencial a capacitaciones y seminarios con tarifas reducidas.</li>
+                <li><strong>Oportunidades de Co-marketing:</strong> Posibilidad de participar en campañas conjuntas de la Cámara.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="modal-gold" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Beneficios Membresía Oro</h3>
+            <p>El nivel más alto de membresía, ofreciendo máxima exposición y oportunidades estratégicas.</p>
+            <ul>
+                <li><strong>Todos los beneficios Plata:</strong> Incluye todo lo de la membresía Plata.</li>
+                <li><strong>"Empresa Destacada" en la Portada:</strong> Tu empresa será rotada en la sección de "Empresas Destacadas" en la página de inicio.</li>
+                <li><strong>Oportunidades de Patrocinio Prioritarias:</strong> Acceso anticipado a oportunidades de patrocinio en eventos clave de la Cámara.</li>
+                <li><strong>Sesiones de Formación Exclusivas:</strong> Talleres y consultorías personalizadas para alta gerencia.</li>
+                <li><strong>Participación en Comité Directivo:</strong> Voz y voto en decisiones importantes de la Cámara.</li>
+            </ul>
+        </div>
+    </div>
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>

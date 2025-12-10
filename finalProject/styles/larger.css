@@ -1,0 +1,123 @@
+/* ---- RESPONSIVE DESIGN FOR LARGER SCREENS (Tablets & Desktop) ---- */
+
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #menu-button {
+        display: none;
+    }
+
+    footer {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0;
+        text-align: left;
+    }
+    .footer-info { justify-content: flex-start; }
+    .footer-contact { text-align: center; }
+    .footer-meta { text-align: right; }
+
+    /* Home Page Grid */
+    .home-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+    
+    .spotlight-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Join Page Grid */
+    .join-main {
+        grid-template-columns: 2fr 1fr; 
+        grid-template-areas:
+            "form levels"
+            "why-join levels";
+    }
+
+    .join-form-container { grid-area: form; }
+    .membership-levels { grid-area: levels; display: block; } 
+    .level-card { margin-bottom: 1.5rem; }
+    .why-join-us { grid-area: why-join; }
+    
+    /* --- Directory List View for Desktop --- */
+    /* This transforms the stack into a row for better use of space */
+    .directory-list .member-card { 
+        flex-direction: row;
+        text-align: left; 
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+    .directory-list .member-card img { 
+        margin-right: 2rem; 
+        margin-bottom: 0;
+        width: 150px;
+    }
+    .directory-list .member-card div {
+        flex: 1;
+    }
+    
+    /* Hover Effects */
+    .place-card:hover img {
+        transform: scale(1.02);
+        transition: transform 0.3s;
+    }
+    
+    .home-grid .card {
+        height: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    header {
+        flex-direction: column;
+        position: relative;
+    }
+    
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding-top: 1rem;
+    }
+
+    nav ul.open {
+        display: flex;
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    #menu-button {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
+/* --- Media Queries for Discover Grid specific layout --- */
+@media (min-width: 641px) {
+    .discover-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1025px) {
+    .discover-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
